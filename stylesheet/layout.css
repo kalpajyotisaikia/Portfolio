@@ -1,0 +1,142 @@
+:root {
+  --bg: #0b1220;
+  --card: #0f172a;
+  --muted: #94a3b8;
+  --text: #e2e8f0;
+  --accent: #06b6d4;
+  --edge: #1f2937;
+}
+
+/* === Section Spacing === */
+#recommendations,
+#certificates,
+#contact,
+#internships,
+#works,
+#education {
+  margin-top: 25px;
+}
+
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(180deg, #0b1220, #0b1220 40%, #0a0f1c);
+  color: var(--text);
+  font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #0b1220ee;
+  backdrop-filter: blur(6px);
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #1f2937;
+  flex-wrap: wrap;
+}
+
+footer {
+  margin: 40px 0;
+  color: #64748b;
+  font-size: 14px;
+  text-align: center;
+}
+
+.wrap {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 32px 20px;
+}
+
+/* === Grid Layout === */
+.grid {
+  display: grid;
+  gap: 18px;
+  margin-top: 24px;
+  align-items: stretch;
+}
+@media (min-width: 860px) {
+  .grid {
+    grid-template-columns: 1.2fr .8fr;
+  }
+}
+
+/* ===============================
+   RESPONSIVE MEDIA QUERIES
+   =============================== */
+
+/* Phones */
+@media (max-width: 600px) {
+  body {
+    font-size: 14px;
+  }
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+  }
+  nav a {
+    margin: 4px 6px;
+    font-size: 14px;
+  }
+  .wrap {
+    padding: 20px 12px;
+  }
+  .card {
+    padding: 18px;
+  }
+  .lor-card img {
+    height: auto; /* prevent image crop */
+  }
+}
+
+/* Tablets */
+@media (min-width: 601px) and (max-width: 1024px) {
+  body {
+    font-size: 15px;
+  }
+  .wrap {
+    padding: 24px 16px;
+  }
+  nav a {
+    font-size: 15px;
+  }
+}
+
+/* Laptops (13–15 inch) */
+@media (min-width: 1025px) and (max-width: 1440px) {
+  body {
+    font-size: 16px;
+  }
+}
+
+/* Large monitors */
+@media (min-width: 1441px) {
+  body {
+    font-size: 18px;
+    line-height: 1.7;
+  }
+  .wrap {
+    max-width: 1400px; /* keep content centered */
+  }
+}

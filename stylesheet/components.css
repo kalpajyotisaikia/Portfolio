@@ -1,0 +1,158 @@
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.badge {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  overflow: hidden;  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.badge img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+nav a {
+  margin: 0 8px;
+  padding: 6px 10px;
+  border-radius: 8px;
+}
+nav a:hover {
+  background: #1f2937;
+}
+
+/* === Cards === */
+.card {
+  background: linear-gradient(180deg, #0f172a, #0e1628);
+  border: 1px solid #1e293b;
+  padding: 24px;
+  border-radius: 20px;
+  box-shadow: 0 10px 28px rgba(0,0,0,.3);
+}
+.card h2,
+.card h3 {
+  margin-bottom: 14px;
+  font-size: 20px;
+  border-bottom: 1px solid #1f2937;
+  padding-bottom: 6px;
+}
+
+.pill {
+  display: inline-block;
+  background: linear-gradient(135deg, #0e1b2e, #111827);
+  border: 1px solid #1e293b;
+  color: #e5e7eb;
+  border-radius: 999px;
+  padding: 6px 12px;
+  margin: 4px 6px 0 0;
+  font-size: 13px;
+  transition: all .2s;
+}
+.pill:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 14px;
+  padding: 10px 16px;
+  background: linear-gradient(90deg, var(--accent), #14b8a6);
+  color: #0b1220;
+  font-weight: 700;
+  border-radius: 12px;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,.25);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,.4);
+}
+
+/* === Skills Styling === */
+#skills p {
+  margin: 6px 0;
+  padding: 8px 12px;
+  background: linear-gradient(135deg, #0e1b2e, #111827);
+  border: 1px solid #1f2937;
+  border-radius: 12px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+#skills p::before {
+  content: "⚡";
+  font-size: 15px;
+  color: var(--accent);
+}
+
+/* === Gallery === */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  margin-top: 8px;
+}
+.lor-card {
+  background: #0e1b2e;
+  border: 1px solid #1e293b;
+  border-radius: 14px;
+  overflow: hidden;
+  transition: transform .25s, box-shadow .25s;
+}
+.lor-card img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  display: block;
+}
+.lor-meta {
+  padding: 10px 12px;
+  font-size: 13px;
+  color: #cbd5e1;
+}
+
+/* === Lightbox === */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, .85);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+.lightbox.open {
+  display: flex;
+}
+.lightbox img {
+  max-width: 96vw;
+  max-height: 90vh;
+  border-radius: 12px;
+}
+.lightbox .close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: #0f172a;
+  border: 1px solid #1f2937;
+  color: #e2e8f0;
+  border-radius: 10px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
