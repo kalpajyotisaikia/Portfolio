@@ -1,278 +1,675 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Kalpajyoti Saikia – Portfolio</title>
-  <meta name="description" content="Chemical Engineering • Web Development • Analytics — Portfolio of Kalpajyoti Saikia">
-  <meta property="og:title" content="Kalpajyoti Saikia – Portfolio">
-  <meta property="og:description" content="Chemical Engineering • Web Development • Analytics">
 
-  <!-- Split CSS files -->
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>
+    Kalpajyoti Saikia — Portfolio
+  </title>
+
+  <meta
+    name="description"
+    content="Chemical Engineer • Developer • Researcher"
+  >
+
+  <!-- GOOGLE FONT -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- FONT AWESOME -->
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  >
+
+  <!-- CSS -->
+
   <link rel="stylesheet" href="stylesheet/layout.css">
+
   <link rel="stylesheet" href="stylesheet/components.css">
+
   <link rel="stylesheet" href="stylesheet/animations.css">
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- GSAP -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <!-- LENIS -->
+
+  <script src="https://unpkg.com/lenis@1.1.16/dist/lenis.min.js"></script>
+
 </head>
+
 <body>
-  <header>
-    <div class="brand">
-      <div class="badge">
-        <img src="images/kalpajyoti_pic.jpeg" alt="Kalpajyoti Saikia">
-      </div>
-      <div class="title">Kalpajyoti Saikia</div>
-    </div>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#education">Education</a>
-      <a href="#skills">Skills</a>
-      <a href="#experience">Experiences</a>
-      <a href="#internships">Internships</a>
-      <a href="#experience-certificates">Experience Certificates</a>
-      <a href="#recommendations">LORs</a>
-      <a href="#certificates">Certificates</a>
-      <a href="#works">Works</a>
-      <a href="#contact">Contact</a>
-      <a class="btn" href="Kalpajyoti Saikia.pdf" download title="Download Resume">Download Resume</a>
-    </nav>
-  </header>
 
-  <main class="wrap">
+  <!-- LOADER -->
 
-    <!-- About -->
-    <section class="card" id="about">
-      <h2><i class="fa-solid fa-user"></i> About Me</h2>
-      <p>Dedicated and highly motivated Chemical Engineering graduate with a strong work ethic and a versatile skill set. Proficient in technical and digital tools, with experience across research, internships, and projects. Actively seeking a challenging career that leverages my abilities and promotes continuous learning and professional growth.</p>
-      <div>
-        <span class="pill">Adaptability</span>
-        <span class="pill">Fast-learning</span>
-        <span class="pill">Problem-solving</span>
-        <span class="pill">Teamwork</span>
-        <span class="pill">Flexibility</span>
-      </div>
-    </section>
+<div class="loader">
 
-   <!-- Skills & Experience 
-    <section class="grid"> -->
+  <div class="loader-content">
 
-      <!-- Education -->
-      <section class="card" id="education">
-        <h2><i class="fa-solid fa-graduation-cap"></i> Education</h2>
-          <ul>
-          <li><b>B.Tech in Chemical Engineering</b> — Golaghat Engineering College, Assam (2025)</li>
-          <li><b>High School / +2</b> — Brilliant Academy, Lakhimpur (2019)</li>
-          <li><b>Matriculation / 10th</b> — Sankardev Shishu/Vidya Niketan, Nowboicha (2017)</li>
-          </ul>
-      </section>
+    <img
+      src="images/kalpajyoti_pic.jpeg"
+      alt="Kalpajyoti"
+      class="loader-img"
+    >
 
-      <!-- Skills -->
-      <section class="card" id="skills">
-        <h3><i class="fa-solid fa-bolt"></i> Skills</h3>
-        <p><b>Programming Languages:</b> C/C++, Python, Java</p>
-        <p><b>Web Development:</b> HTML, CSS, JavaScript</p>
-        <p><b>Technologies & Frameworks:</b> MS Office, GitHub, WordPress, Pandas, Django, NumPy, SciPy, CFD</p>
-        <p><b>Software:</b> Arduino, Ansys, MATLAB, Comsol, Jupyter, AutoCAD, Android Studio, Photoshop, Illustrator</p>
-        <p><b>Concepts:</b> Chemical Processes, Thermodynamics, Polymer & Material Science, Fluid-flow Operations, Plant & Equipment Design, Heat & Mass Transfer, Reaction Engineering, DSA, Molecular Docking, Data Mining</p>
-      </section>
+    <h1>KALPAJYOTI</h1>
 
-      <!-- Experience -->
-      <section class="card" id="experience">
-        <h3><i class="fa-solid fa-briefcase"></i> Experiences</h3>
-        <p><b>Project Associate</b> — Industrial Energy Assessment Cell, IIT Guwahati (Feb, 2025 – Aug, 2025)</p>
-        <ul>
-          <li>Performed tasks related to energy audits and energy efficiency evaluations.</li>
-          <li>Developed and managed the ECM 2025 conference website (<a href="https://event.iitg.ac.in/ecm25/" target="_blank">ecm25</a>).</li>
-          <li>Designed the official logo and branding materials for the ECM 2025 conference.</li>
-        </ul>
-        <p><b>BD & Digital Marketing Strategist</b> — Aina Institute of Multiple Skills (Jun, 2024 – Sep, 2025)</p>
-        <ul>
-          <li>Website maintenance and updates.</li>
-          <li>Implementing and managing digital marketing strategies across multiple platforms.</li>
-          <li>Planning and executing lead generation campaigns to support business growth.</li>
-          <li>Contributing to business development initiatives and client acquisition.</li>
-        </ul>
-      </section>
-    </section>
-
-    <!-- Internships -->
-    <section class="card" id="internships">
-      <h3><i class="fa-solid fa-user-graduate"></i> Internships</h3>
-      <ul>
-        <li><b>Oil India Limited (Jul – Aug 2023)</b> — Learned about cementing in drilling, drilling fluids, and mud systems.</li>
-        <li><b>North Lakhimpur University (Oct 2022 – Apr 2023)</b> — Research on Biocompatible Quantum Dots for bio-detection imaging & biomedicine.</li>
-        <li><b>BITS Pilani KK Birla Goa Campus (May – Sep 2022)</b> — Researched adsorption of ammonia molecules on graphene surfaces.</li>
-        <li><b>IIT Guwahati (May – Aug 2022)</b> — Studied protein active sites, binding pockets, folding kinetics, and stability.</li>
-        <li><b>MoHUA, Govt. of India (Jul – Aug 2022)</b> — Worked on rejuvenation & reimagination strategy for an old pond.</li>
-        <li><b>BARC, Mumbai (Sep 2021)</b> — Attended DAE Symposium on Current Trends in Theoretical Chemistry.</li>
-        <li><b>PCRA, Govt. of India (Feb 2021)</b> — Institutional Training on Oil Conservation.</li>
-      </ul>
-    </section>
-
-    <!-- Experience Certificates -->
-    <section class="card" id="experience-certificates">
-      <h3><i class="fa-solid fa-briefcase"></i> Experience Certificates</h3>
-      <div class="gallery">
-        <figure class="lor-card">
-          <img src="experience/IITG.png" alt="Experience Certificate - IIT Guwahati" data-full="experience_certificates/IITG.jpeg">
-          <figcaption class="lor-meta">
-            <b>Industrial Energy Assessment Cell, IIT Guwahati</b> — Project Associate
-          </figcaption>
-        </figure>
-        <figure class="lor-card">
-          <img src="experience/AIMS.jpg" alt="Experience Certificate - Oil India Limited" data-full="experience_certificates/OIL.jpeg">
-          <figcaption class="lor-meta">
-            <b>Aina Institute of Multiple Skills</b> — Business Development and Digital Marketing Strategist
-          </figcaption>
-        </figure>
-      </div>
-    </section>
-
-
-    <!-- LORs -->
-    <section class="card" id="recommendations">
-      <h3><i class="fa-solid fa-comments"></i> Letters of Recommendation</h3>
-      <div class="gallery">
-        <figure class="lor-card">
-          <img src="LORs/LOR (BITS).jpeg" alt="LOR - Paramita Haldar, BITS Pilani" data-full="LORs/LOR (BITS).jpeg">
-          <figcaption class="lor-meta">
-            <b>BITS Pilani (Goa)</b> — <i>Paramita Haldar, Assistant Professor</i><br>
-            Research internship (Graphene Oxide / Hydrogen storage)
-          </figcaption>
-        </figure>
-
-        <figure class="lor-card">
-          <img src="LORs/LOR (design).jpeg" alt="LOR - Dr. R. Anandalakshmi, IIT Guwahati (Design)" data-full="LORs/LOR (design).jpeg">
-          <figcaption class="lor-meta">
-            <b>IIT Guwahati (ECM 2025)</b> — <i>Dr. R. Anandalakshmi, Convenor</i><br>
-            Logo, banners, standees, IDs & certificates
-          </figcaption>
-        </figure>
-
-        <figure class="lor-card">
-          <img src="LORs/LOR (NLU).jpeg" alt="LOR - Dr. Jejiron M. Baruah, North Lakhimpur College" data-full="LORs/LOR (NLU).jpeg">
-          <figcaption class="lor-meta">
-            <b>North Lakhimpur College</b> — <i>Dr. Jejiron M. Baruah</i><br>
-            Quantum dots research contribution
-          </figcaption>
-        </figure>
-
-        <figure class="lor-card">
-          <img src="LORs/LOR (website).jpeg" alt="LOR - Dr. R. Anandalakshmi, IIT Guwahati (Website)" data-full="LORs/LOR (website).jpeg">
-          <figcaption class="lor-meta">
-            <b>IIT Guwahati (ECM 2025)</b> — <i>Dr. R. Anandalakshmi</i><br>
-            Conference website UX & updates
-          </figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <!-- Certificates -->
-    <section class="card" id="certificates">
-      <h3><i class="fa-solid fa-award"></i> Certificates</h3>
-      <div class="gallery">
-        <figure class="lor-card">
-          <img src="certificates/BARC.jpeg" alt="Certificate - BARC Symposium" data-full="certificates/BARC.jpeg">
-          <figcaption class="lor-meta">
-            <b>BARC</b> — Theoretical Chemistry Symposium
-          </figcaption>
-        </figure>
-
-        <figure class="lor-card">
-          <img src="certificates/MoHUA.jpeg" alt="Certificate - MoHUA Internship" data-full="certificates/MoHUA.jpeg">
-          <figcaption class="lor-meta">
-            <b>MoHUA</b> — Jal Dharohar Internship
-          </figcaption>
-        </figure>
-
-        <figure class="lor-card">
-          <img src="certificates/MPN.jpeg" alt="Certificate - Petroleum Conservation" data-full="certificates/MPN.jpeg">
-          <figcaption class="lor-meta">
-            <b>PCRA</b> — Oil Conservation Training
-          </figcaption>
-        </figure>
-
-        <figure class="lor-card">
-          <img src="certificates/OIL.jpeg" alt="Certificate - Oil India Limited Internship" data-full="certificates/OIL.jpeg">
-          <figcaption class="lor-meta">
-            <b>Oil India Limited</b> — Summer Internship
-          </figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <!-- Works -->
-    <section class="card" id="works">
-      <h3><i class="fa-solid fa-diagram-project"></i> Works</h3>
-
-      <!-- Design & Branding -->
-      <h4 style="margin-top:16px; color:var(--accent);">🎨 Design & Branding</h4>
-      <p><b>ECM 2025 Conference Website</b> — Designed & developed for 
-         <a href="https://event.iitg.ac.in/ecm25/" target="_blank">Energy & Carbon Management (IIT Guwahati)</a>.
-      </p>
-
-      <div style="margin: 12px 0;">
-        <img src="works/conference_logo.png" alt="ECM25 Logo" style="max-width:180px; border-radius:10px;">
-        <p><b>ECM 2025 Logo</b> — Official logo design for the International Conference on Energy & Carbon Management.</p>
-      </div>
-
-      <p><b>Event Branding & Designs</b> — Banners, standees, certificates & other visual assets.  
-         See more on <a href="https://www.linkedin.com/company/iitgecm25/" target="_blank">LinkedIn</a>.
-      </p>
-
-      <p><b>Infinity Education Website</b> — Designed & managed using WordPress.<br>
-         <a href="https://infinityeducationcom.wordpress.com/" target="_blank">Visit Website</a>
-      </p>
-
-      <!-- Web-Apps -->
-      <h4 style="margin-top:22px; color:var(--accent);">💻 Web-Apps</h4>
-      <p><b>Frudent — Educational Web-App (Ongoing)</b> — Original concept & development.<br>
-         <a href="https://frudent.onrender.com/" target="_blank">Live Demo</a> | 
-         <a href="https://github.com/kalpajyotisaikia/Frudent" target="_blank">GitHub Repo</a>
-      </p>
-
-      <p><b>Sharpy — Online Education App</b> — A web-app designed for coaching centres to manage education online.<br>
-         <a href="https://sharpy-zzmw.onrender.com/" target="_blank">Live Demo</a> | 
-         <a href="https://github.com/kalpajyotisaikia/Sharpy" target="_blank">GitHub Repo</a>
-      </p>
-
-      <p><b>Sanjivani – MedReport</b> — A web-app designed for medical labs to manage patient data and diagnostic reports, featuring secure patient login, hospital-wise report management, and PDF generation with search and download support. <br>
-         <a href="https://sanjivani-iwus.onrender.com" target="_blank">Live Demo</a> | 
-         <a href="https://github.com/kalpajyotisaikia/Sanjivani" target="_blank">GitHub Repo</a>
-      </p>
-
-      <p><b>Database Site</b> — A database-driven website project.<br>
-         <a href="https://database-site.onrender.com/database.html" target="_blank">Live Demo</a> | 
-         <a href="https://github.com/kalpajyotisaikia/Database-site" target="_blank">GitHub Repo</a>
-      </p>
-    </section>
-
-    <!-- Contact -->
-    <section class="card" id="contact">
-      <h3><i class="fa-solid fa-envelope"></i> Contact</h3>
-      <p><b>Email:</b> <a href="mailto:ecm25@iitg.ac.in" class="email-id">kalpajyotisaikia.nlp@gmail.com</a><br>
-         <b>LinkedIn:</b> <a href="https://www.linkedin.com/in/erkalpajyoti" target="_blank">linkedin.com/in/erkalpajyoti</a><br>
-         <b>GitHub:</b> <a href="https://github.com/kalpajyotisaikia" target="_blank">github.com/kalpajyotisaikia</a><br>
-         <b>Whatsapp:</b> Click <a href="https://wa.me/+917896519348" target="_blank">here</a> to send a message<br>
-      </p>
-      <!--<a class="btn" href="Kalpajyoti Saikia.pdf" download>Download Resume (PDF)</a>-->
-    </section>
-  </main>
-
-  <footer>© <span id="y"></span> Kalpajyoti Saikia</footer>
-
-  <!-- Lightbox -->
-  <div class="lightbox" id="lightbox">
-    <button class="close" aria-label="Close">✕ Close</button>
-    <img alt="Full view">
   </div>
 
-  <!-- External JS -->
-  <script src="scripts/nav.js"></script>
-  <script src="scripts/main.js"></script>
-  <script src="scripts/extras.js"></script>
-  <script src="scripts/theme.js"></script>
-</body>
-</html>
+</div>
 
+  <!-- STARFIELD -->
+
+  <canvas id="particles"></canvas>
+
+  <!-- NOISE -->
+
+  <div class="noise"></div>
+
+  <!-- CURSOR -->
+
+  <div class="cursor"></div>
+
+  <!-- HEADER -->
+
+  <header>
+
+    <div class="brand">
+
+  <div class="badge preview-trigger">
+
+    <img
+      src="images/Kalpajyoti.jpeg"
+      alt="Kalpajyoti Saikia"
+    >
+
+  </div>
+
+  
+
+<!-- PROFILE PREVIEW -->
+
+<div class="image-preview" id="imagePreview">
+
+  <span class="close-preview">
+    ✕
+  </span>
+
+  <img
+    src="images/Kalpajyoti.jpeg"
+    alt="Preview"
+    id="previewImg"
+  >
+
+</div>
+
+      <div class="title">
+
+        Kalpajyoti Saikia
+
+      </div>
+
+    </div>
+
+    <nav>
+
+      <a href="#about">About</a>
+
+      <a href="#skills">Skills</a>
+
+      <a href="#works">Works</a>
+
+      <a href="#experience">Experience</a>
+
+      <a href="#research">Research</a>
+
+      <a href="#lors">LORs</a>
+
+      <a href="#certificates">Certificates</a>
+
+      <a href="#contact">Contact</a>
+
+      <a
+        class="btn"
+        href="Kalpajyoti Saikia.pdf"
+        download
+      >
+        Resume
+      </a>
+
+    </nav>
+
+  </header>
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="gradient"></div>
+
+    <div class="hero-content">
+
+      <span class="hero-sub">
+
+        CHEMICAL ENGINEER • DEVELOPER • RESEARCHER
+
+      </span>
+
+      <h1 class="reveal">
+
+        Building<br>
+        research,<br>
+        digital systems,<br>
+        and cinematic engineering.
+
+      </h1>
+
+      <p>
+
+        Chemical Engineering graduate with experience in
+        research, energy systems, branding, analytics,
+        development and creative technologies.
+
+      </p>
+
+      <a href="#works" class="hero-btn">
+
+        Explore Works
+
+      </a>
+
+    </div>
+
+    <div class="scroll-text">
+
+      SCROLL
+
+    </div>
+
+  </section>
+
+  <!-- ABOUT -->
+
+  <section class="section about" id="about">
+
+    <div class="section-label">
+
+      ABOUT
+
+    </div>
+
+    <div class="about-grid">
+
+      <div>
+
+        <h2>
+
+          Engineer.<br>
+          Developer.<br>
+          Designer.
+
+        </h2>
+
+      </div>
+
+      <div>
+
+        <p>
+
+          Dedicated and highly motivated Chemical Engineering graduate
+          with experience across research, development,
+          branding, analytics and engineering systems.
+
+        </p>
+
+        <p>
+
+          Worked with IIT Guwahati, Oil India Limited,
+          BITS Pilani, research institutions and startups
+          on impactful engineering and digital projects.
+
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- SKILLS -->
+
+  <section class="section" id="skills">
+
+    <div class="section-label">
+
+      SKILLS
+
+    </div>
+
+    <div class="skills-grid">
+
+      <span>Python</span>
+      <span>Django</span>
+      <span>JavaScript</span>
+      <span>HTML</span>
+      <span>CSS</span>
+      <span>CFD</span>
+      <span>MATLAB</span>
+      <span>Comsol</span>
+      <span>AutoCAD</span>
+      <span>WordPress</span>
+      <span>GitHub</span>
+      <span>NumPy</span>
+      <span>Pandas</span>
+      <span>Arduino</span>
+      <span>Photoshop</span>
+      <span>Illustrator</span>
+
+    </div>
+
+  </section>
+
+  <!-- WORKS -->
+
+  <section class="section works" id="works">
+
+    <div class="section-label">
+
+      SELECTED WORKS
+
+    </div>
+
+    <div class="project">
+
+      <div class="project-image">
+
+        <img src="works/conference_logo.png">
+
+      </div>
+
+      <div class="project-info">
+
+        <span>2025</span>
+
+        <h3>ECM 2025</h3>
+
+        <p>
+
+          Official conference website, branding,
+          logo design and digital identity for
+          Energy & Carbon Management at IIT Guwahati.
+
+        </p>
+
+        <div class="links">
+
+          <a
+            href="https://event.iitg.ac.in/ecm25/"
+            target="_blank"
+          >
+            Website
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- EXPERIENCE -->
+
+  <section class="section experience" id="experience">
+
+    <div class="section-label">
+
+      EXPERIENCE
+
+    </div>
+
+    <div class="timeline">
+
+      <div class="timeline-item">
+
+        <span>2026 - Present</span>
+
+        <h3>Fidicon Devices India</h3>
+
+        <p>
+
+          Proposal Engineer.
+
+        </p>
+
+      </div>
+
+    <div class="timeline">
+
+      <div class="timeline-item">
+
+        <span>2025 - 2025</span>
+
+        <h3>IIT Guwahati</h3>
+
+        <p>
+
+          Project Associate at Industrial Energy Assessment Cell.
+
+        </p>
+
+      </div>
+
+      <div class="timeline-item">
+
+        <span>2024 - 2025</span>
+
+        <h3>AIMS</h3>
+
+        <p>
+
+          Business Development & Digital Marketing Strategist.
+
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- RESEARCH -->
+
+  <section class="section research" id="research">
+
+    <div class="section-label">
+
+      RESEARCH & INTERNSHIPS
+
+    </div>
+
+    <div class="research-grid">
+
+      <div class="research-card">
+
+        <h3>BITS Pilani Goa</h3>
+
+        <p>
+
+          Adsorption of ammonia molecules
+          on graphene surfaces.
+
+        </p>
+
+      </div>
+
+      <div class="research-card">
+
+        <h3>IIT Guwahati</h3>
+
+        <p>
+
+          Protein active sites,
+          folding kinetics and stability.
+
+        </p>
+
+      </div>
+
+      <div class="research-card">
+
+        <h3>North Lakhimpur University</h3>
+
+        <p>
+
+          Quantum dots for biomedical imaging
+          and biocompatible applications.
+
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- LORs -->
+
+  <section class="section gallery" id="lors">
+
+    <div class="section-label">
+
+      LETTERS OF RECOMMENDATION
+
+    </div>
+
+    <div class="gallery-grid">
+
+      <div class="gallery-item">
+
+        <img src="LORs/LOR (BITS).jpeg">
+
+        <div class="gallery-caption">
+
+          <h3>BITS Pilani Goa</h3>
+
+          <p>
+            Research Internship Recommendation
+          </p>
+
+        </div>
+
+      </div>
+
+      <div class="gallery-item">
+
+        <img src="LORs/LOR (design).jpeg">
+
+        <div class="gallery-caption">
+
+          <h3>IIT Guwahati</h3>
+
+          <p>
+            ECM 2025 Design & Branding
+          </p>
+
+        </div>
+
+      </div>
+
+      <div class="gallery-item">
+
+        <img src="LORs/LOR (NLU).jpeg">
+
+        <div class="gallery-caption">
+
+          <h3>North Lakhimpur University</h3>
+
+          <p>
+            Quantum Dots Research
+          </p>
+
+        </div>
+
+      </div>
+
+      <div class="gallery-item">
+
+        <img src="LORs/LOR (website).jpeg">
+
+        <div class="gallery-caption">
+
+          <h3>IIT Guwahati</h3>
+
+          <p>
+            Website Development Recommendation
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CERTIFICATES -->
+
+  <section class="section gallery" id="certificates">
+
+    <div class="section-label">
+
+      CERTIFICATES
+
+    </div>
+
+    <div class="gallery-grid">
+
+      <div class="gallery-item">
+
+        <img src="certificates/BARC.jpeg">
+
+        <div class="gallery-caption">
+
+          <h3>BARC</h3>
+
+          <p>
+            Theoretical Chemistry Symposium
+          </p>
+
+        </div>
+
+      </div>
+
+      <div class="gallery-item">
+
+        <img src="certificates/MoHUA.jpeg">
+
+        <div class="gallery-caption">
+
+          <h3>MoHUA</h3>
+
+          <p>
+            Jal Dharohar Internship
+          </p>
+
+        </div>
+
+      </div>
+
+      <div class="gallery-item">
+
+        <img src="certificates/MPN.jpeg">
+
+        <div class="gallery-caption">
+
+          <h3>PCRA</h3>
+
+          <p>
+            Oil Conservation Training
+          </p>
+
+        </div>
+
+      </div>
+
+      <div class="gallery-item">
+
+        <img src="certificates/OIL.jpeg">
+
+        <div class="gallery-caption">
+
+          <h3>Oil India Limited</h3>
+
+          <p>
+            Summer Internship Certificate
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CONTACT -->
+
+  <section class="contact" id="contact">
+
+    <h2>
+
+      Let's build<br>
+      something meaningful.
+
+    </h2>
+
+    <div class="contact-links">
+
+      <a href="mailto:kalpajyotisaikia.nlp@gmail.com">
+
+        Email
+
+      </a>
+
+      <a
+        href="https://github.com/kalpajyotisaikia"
+        target="_blank"
+      >
+
+        GitHub
+
+      </a>
+
+      <a
+        href="https://linkedin.com/in/erkalpajyoti"
+        target="_blank"
+      >
+
+        LinkedIn
+
+      </a>
+
+    </div>
+
+  </section>
+
+  <!-- JS -->
+<!-- IMAGE LIGHTBOX -->
+
+<div class="lightbox" id="lightbox">
+
+  <span class="lightbox-close">
+    ✕
+  </span>
+
+  <img
+    class="lightbox-img"
+    id="lightbox-img"
+  >
+
+</div>
+  <script src="scripts/main.js"></script>
+
+</body>
+
+</html>
