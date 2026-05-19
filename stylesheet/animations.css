@@ -140,3 +140,26 @@
 
   backdrop-filter:blur(2px);
 }
+
+
+/* =========================================
+   RESPONSIVE ANIMATIONS
+========================================= */
+
+@media screen and (max-width:768px){
+
+  .cursor{
+    display:none;
+  }
+
+  .loader h1{
+    font-size:3rem;
+    letter-spacing:4px;
+  }
+
+  .loader-img{
+    width:110px;
+    height:110px;
+  }
+
+}

@@ -397,3 +397,194 @@ nav a:hover{
   }
 
 }
+/* =========================================
+   RESPONSIVE DESIGN
+========================================= */
+
+/* LARGE TABLETS */
+
+@media screen and (max-width:1200px){
+
+  .hero h1{
+    font-size:clamp(4rem,9vw,7rem);
+  }
+
+  .project-info h3{
+    font-size:4rem;
+  }
+
+}
+
+/* TABLETS */
+
+@media screen and (max-width:992px){
+
+  header{
+    padding:20px 5%;
+  }
+
+  nav{
+    gap:18px;
+  }
+
+  nav a{
+    font-size:.9rem;
+  }
+
+  .hero{
+    padding:0 6%;
+  }
+
+  .hero h1{
+    font-size:clamp(3.5rem,10vw,6rem);
+  }
+
+  .hero p{
+    max-width:100%;
+  }
+
+  .about-grid{
+    gap:50px;
+  }
+
+  .project{
+    gap:40px;
+  }
+
+  .project-info h3{
+    font-size:3rem;
+  }
+
+}
+
+/* MOBILE */
+
+@media screen and (max-width:768px){
+
+  header{
+    padding:18px 5%;
+  }
+
+  nav{
+    display:none;
+  }
+
+  .hero{
+    padding:120px 7% 80px;
+    min-height:auto;
+  }
+
+  .hero-content{
+    width:100%;
+  }
+
+  .hero-sub{
+    font-size:.7rem;
+    letter-spacing:2px;
+  }
+
+  .hero h1{
+    font-size:clamp(2.8rem,14vw,4.5rem);
+    line-height:1;
+  }
+
+  .hero p{
+    font-size:.95rem;
+    line-height:1.8;
+  }
+
+  .hero-btn{
+    width:170px;
+    height:54px;
+    font-size:.9rem;
+  }
+
+  .scroll-text{
+    display:none;
+  }
+
+  .section{
+    padding:100px 7%;
+  }
+
+  .about-grid{
+    grid-template-columns:1fr;
+    gap:40px;
+  }
+
+  .about h2{
+    font-size:clamp(2.5rem,11vw,4rem);
+  }
+
+  .project,
+  .project.reverse{
+    grid-template-columns:1fr;
+    gap:40px;
+    margin-bottom:100px;
+  }
+
+  .project-image{
+    border-radius:20px;
+  }
+
+  .project-info h3{
+    font-size:2.5rem;
+  }
+
+  .timeline-item h3{
+    font-size:2rem;
+  }
+
+  .research-grid{
+    grid-template-columns:1fr;
+  }
+
+  .gallery-grid{
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+  }
+
+  .contact{
+    min-height:auto;
+    padding:120px 7%;
+  }
+
+  .contact h2{
+    font-size:clamp(2.8rem,13vw,5rem);
+  }
+
+  .contact-links{
+    gap:20px;
+  }
+
+}
+
+/* SMALL MOBILE */
+
+@media screen and (max-width:480px){
+
+  .hero h1{
+    font-size:2.5rem;
+  }
+
+  .hero p{
+    font-size:.9rem;
+  }
+
+  .gallery-grid{
+    grid-template-columns:1fr;
+  }
+
+  .gallery-item img{
+    height:260px;
+  }
+
+  .project-info h3{
+    font-size:2rem;
+  }
+
+  .timeline-item h3{
+    font-size:1.7rem;
+  }
+
+}
