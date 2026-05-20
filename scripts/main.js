@@ -1,19 +1,12 @@
 // ======================
-// DEVICE CHECK
-// ======================
-
-const isMobile =
-window.innerWidth < 768
-
-// ======================
 // LENIS SMOOTH SCROLL
 // ======================
 
 const lenis = new Lenis({
 
-  duration: 1.2,
+  duration: 1.6,
 
-  lerp: 0.09,
+  lerp: 0.065,
 
   smoothWheel: true,
 
@@ -21,7 +14,7 @@ const lenis = new Lenis({
 
   syncTouch: true,
 
-  wheelMultiplier: 0.9,
+  wheelMultiplier: 0.85,
 
   touchMultiplier: 1,
 
@@ -51,9 +44,9 @@ gsap.to(".loader",{
 
   opacity:0,
 
-  delay:1.2,
+  delay:1.8,
 
-  duration:1.2,
+  duration:1.5,
 
   pointerEvents:"none"
 
@@ -66,7 +59,7 @@ gsap.to(".loader",{
 const cursor =
 document.querySelector(".cursor")
 
-if(cursor && !isMobile){
+if(cursor){
 
   window.addEventListener("mousemove",(e)=>{
 
@@ -75,9 +68,9 @@ if(cursor && !isMobile){
       x:e.clientX,
       y:e.clientY,
 
-      duration:.1,
+      duration:.12,
 
-      ease:"power2.out"
+      ease:"power3.out"
 
     })
 
@@ -100,7 +93,7 @@ gsap.from(".hero-sub",{
   opacity:0,
   y:20,
 
-  duration:1,
+  duration:1.2,
 
   ease:"power3.out"
 
@@ -111,7 +104,7 @@ gsap.from(".reveal",{
   opacity:0,
   y:80,
 
-  duration:1.4,
+  duration:1.6,
 
   ease:"power4.out"
 
@@ -124,7 +117,7 @@ gsap.from(".hero p",{
 
   delay:.2,
 
-  duration:1,
+  duration:1.2,
 
   ease:"power3.out"
 
@@ -135,9 +128,9 @@ gsap.from(".hero-btn",{
   opacity:0,
   y:30,
 
-  delay:.35,
+  delay:.4,
 
-  duration:1,
+  duration:1.2,
 
   ease:"power3.out"
 
@@ -145,32 +138,28 @@ gsap.from(".hero-btn",{
 
 // FLOATING HERO
 
-if(!isMobile){
+gsap.to(".hero-content",{
 
-  gsap.to(".hero-content",{
+  y:20,
 
-    y:16,
+  duration:4,
 
-    duration:4,
+  repeat:-1,
 
-    repeat:-1,
+  yoyo:true,
 
-    yoyo:true,
+  ease:"sine.inOut"
 
-    ease:"sine.inOut"
-
-  })
-
-}
+})
 
 // PARALLAX
 
 gsap.to(".gradient",{
 
-  y:isMobile ? 120 : 220,
+  y:220,
 
   scrollTrigger:{
-    scrub:1
+    scrub:true
   }
 
 })
@@ -182,15 +171,15 @@ gsap.utils.toArray(".section").forEach(section=>{
   gsap.from(section,{
 
     opacity:0,
-    y:50,
+    y:60,
 
-    duration:1,
+    duration:1.2,
 
     ease:"power3.out",
 
     scrollTrigger:{
       trigger:section,
-      start:"top 88%"
+      start:"top 85%"
     }
 
   })
@@ -204,15 +193,15 @@ gsap.utils.toArray(".project").forEach(project=>{
   gsap.from(project,{
 
     opacity:0,
-    y:50,
+    y:60,
 
-    duration:1,
+    duration:1.2,
 
     ease:"power3.out",
 
     scrollTrigger:{
       trigger:project,
-      start:"top 90%"
+      start:"top 88%"
     }
 
   })
@@ -223,55 +212,51 @@ gsap.utils.toArray(".project").forEach(project=>{
 // MAGNETIC BUTTON
 // ======================
 
-if(!isMobile){
+const buttons =
+document.querySelectorAll(".hero-btn")
 
-  const buttons =
-  document.querySelectorAll(".hero-btn")
+buttons.forEach(btn=>{
 
-  buttons.forEach(btn=>{
+  btn.addEventListener("mousemove",(e)=>{
 
-    btn.addEventListener("mousemove",(e)=>{
+    const rect =
+    btn.getBoundingClientRect()
 
-      const rect =
-      btn.getBoundingClientRect()
+    const x =
+    e.clientX - rect.left - rect.width / 2
 
-      const x =
-      e.clientX - rect.left - rect.width / 2
+    const y =
+    e.clientY - rect.top - rect.height / 2
 
-      const y =
-      e.clientY - rect.top - rect.height / 2
+    gsap.to(btn,{
 
-      gsap.to(btn,{
+      x:x * .18,
+      y:y * .18,
 
-        x:x * .15,
-        y:y * .15,
+      duration:.35,
 
-        duration:.3,
-
-        ease:"power2.out"
-
-      })
-
-    })
-
-    btn.addEventListener("mouseleave",()=>{
-
-      gsap.to(btn,{
-
-        x:0,
-        y:0,
-
-        duration:.5,
-
-        ease:"power3.out"
-
-      })
+      ease:"power3.out"
 
     })
 
   })
 
-}
+  btn.addEventListener("mouseleave",()=>{
+
+    gsap.to(btn,{
+
+      x:0,
+      y:0,
+
+      duration:.7,
+
+      ease:"elastic.out(1,0.3)"
+
+    })
+
+  })
+
+})
 
 // ======================
 // INTERACTIVE STARFIELD
@@ -284,7 +269,7 @@ const ctx =
 canvas.getContext("2d")
 
 const dpr =
-Math.min(window.devicePixelRatio,1.2)
+Math.min(window.devicePixelRatio,1.5)
 
 canvas.width =
 window.innerWidth * dpr
@@ -305,7 +290,7 @@ let mouse = {
   x:null,
   y:null,
 
-  radius:isMobile ? 90 : 160
+  radius:160
 
 }
 
@@ -334,7 +319,9 @@ window.addEventListener("touchmove",(e)=>{
   passive:true
 })
 
-window.addEventListener("touchend",()=>{
+// OUT
+
+window.addEventListener("mouseout",()=>{
 
   mouse.x = undefined
   mouse.y = undefined
@@ -359,13 +346,13 @@ class Star{
     this.baseY = this.y
 
     this.size =
-    Math.random() * 1.6 + .4
+    Math.random() * 2 + .6
 
     this.speedX =
-    (Math.random() - .5) * .04
+    (Math.random() - .5) * .08
 
     this.speedY =
-    (Math.random() - .5) * .04
+    (Math.random() - .5) * .08
 
     this.vx = 0
     this.vy = 0
@@ -385,10 +372,9 @@ class Star{
     )
 
     ctx.fillStyle =
-    "rgba(255,255,255,.9)"
+    "rgba(255,255,255,.95)"
 
-    ctx.shadowBlur =
-    isMobile ? 0 : 8
+    ctx.shadowBlur = 8
 
     ctx.shadowColor =
     "#ffffff"
@@ -427,12 +413,9 @@ class Star{
     mouse.y - this.y
 
     let distance =
-    dx * dx + dy * dy
+    (dx * dx + dy * dy)
 
-    if(
-      mouse.x &&
-      distance < mouse.radius * mouse.radius
-    ){
+    if(distance < mouse.radius * mouse.radius){
 
       const angle =
       Math.atan2(dy,dx)
@@ -444,7 +427,7 @@ class Star{
       )
 
       const push =
-      force * 2
+      force * 3.2
 
       this.vx -=
       Math.cos(angle) * push
@@ -455,13 +438,13 @@ class Star{
     }
 
     this.vx +=
-    (this.baseX - this.x) * 0.005
+    (this.baseX - this.x) * 0.008
 
     this.vy +=
-    (this.baseY - this.y) * 0.005
+    (this.baseY - this.y) * 0.008
 
-    this.vx *= 0.92
-    this.vy *= 0.92
+    this.vx *= 0.94
+    this.vy *= 0.94
 
     this.x += this.vx
     this.y += this.vy
@@ -481,7 +464,7 @@ function initStars(){
   stars = []
 
   const starCount =
-  isMobile ? 70 : 140
+  window.innerWidth < 768 ? 120 : 180
 
   for(let i = 0; i < starCount; i++){
 
@@ -499,8 +482,6 @@ initStars()
 
 function connectStars(){
 
-  if(isMobile) return
-
   for(let a = 0; a < stars.length; a++){
 
     for(let b = a; b < stars.length; b++){
@@ -514,17 +495,17 @@ function connectStars(){
       let distance =
       dx * dx + dy * dy
 
-      if(distance < 2400){
+      if(distance < 3200){
 
         const opacity =
-        1 - (distance / 2400)
+        1 - (distance / 3200)
 
         ctx.beginPath()
 
         ctx.strokeStyle =
-        `rgba(255,255,255,${opacity * 0.05})`
+        `rgba(255,255,255,${opacity * 0.08})`
 
-        ctx.lineWidth = .5
+        ctx.lineWidth = .6
 
         ctx.moveTo(
           stars[a].x,
@@ -550,13 +531,11 @@ function connectStars(){
 // ANIMATION LOOP
 // ======================
 
-const fps =
-isMobile ? 32 : 60
-
-const interval =
-1000 / fps
-
 let lastTime = 0
+
+const fps = 60
+
+const interval = 1000 / fps
 
 function animateStars(timestamp){
 
@@ -597,6 +576,9 @@ requestAnimationFrame(animateStars)
 
 window.addEventListener("resize",()=>{
 
+  const dpr =
+  Math.min(window.devicePixelRatio,1.5)
+
   canvas.width =
   window.innerWidth * dpr
 
@@ -616,7 +598,7 @@ window.addEventListener("resize",()=>{
 })
 
 // ======================
-// LIGHTBOX
+// LIGHTBOX GALLERY
 // ======================
 
 const galleryImages =
@@ -676,9 +658,19 @@ if(lightbox){
 
 }
 
-// ======================
-// PROFILE PREVIEW
-// ======================
+window.addEventListener("keydown",(e)=>{
+
+  if(e.key === "Escape"){
+
+    closeLightbox()
+
+  }
+
+})
+
+// =========================
+// PROFILE IMAGE PREVIEW
+// =========================
 
 const previewTrigger =
 document.querySelector(".preview-trigger")
@@ -704,6 +696,20 @@ if(closePreview && imagePreview){
   closePreview.addEventListener("click",()=>{
 
     imagePreview.classList.remove("active")
+
+  })
+
+}
+
+if(imagePreview){
+
+  imagePreview.addEventListener("click",(e)=>{
+
+    if(e.target === imagePreview){
+
+      imagePreview.classList.remove("active")
+
+    }
 
   })
 
