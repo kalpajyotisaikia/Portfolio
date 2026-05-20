@@ -8,7 +8,7 @@ const lenis = new Lenis({
   smoothTouch: true
 })
 
-function raf(time) {
+function raf(time){
 
   lenis.raf(time)
 
@@ -25,7 +25,9 @@ requestAnimationFrame(raf)
 gsap.to(".loader", {
 
   opacity: 0,
+
   delay: 1.8,
+
   duration: 1.5,
 
   pointerEvents: "none"
@@ -39,16 +41,16 @@ gsap.to(".loader", {
 const cursor =
 document.querySelector(".cursor")
 
-window.addEventListener("mousemove", (e) => {
+window.addEventListener("mousemove",(e)=>{
 
-  gsap.to(cursor, {
+  gsap.to(cursor,{
 
-    x: e.clientX,
-    y: e.clientY,
+    x:e.clientX,
+    y:e.clientY,
 
-    duration: .12,
+    duration:.12,
 
-    ease: "power3.out"
+    ease:"power3.out"
 
   })
 
@@ -62,98 +64,98 @@ gsap.registerPlugin(ScrollTrigger)
 
 // HERO
 
-gsap.from(".hero-sub", {
+gsap.from(".hero-sub",{
 
-  opacity: 0,
-  y: 30,
+  opacity:0,
+  y:30,
 
-  duration: 1.5,
+  duration:1.5,
 
-  ease: "power3.out"
-
-})
-
-gsap.from(".reveal", {
-
-  opacity: 0,
-  y: 180,
-
-  duration: 2,
-
-  ease: "power4.out"
+  ease:"power3.out"
 
 })
 
-gsap.from(".hero p", {
+gsap.from(".reveal",{
 
-  opacity: 0,
-  y: 60,
+  opacity:0,
+  y:180,
 
-  delay: .3,
+  duration:2,
 
-  duration: 1.6,
-
-  ease: "power3.out"
+  ease:"power4.out"
 
 })
 
-gsap.from(".hero-btn", {
+gsap.from(".hero p",{
 
-  opacity: 0,
-  y: 40,
+  opacity:0,
+  y:60,
 
-  delay: .5,
+  delay:.3,
 
-  duration: 1.6,
+  duration:1.6,
 
-  ease: "power3.out"
+  ease:"power3.out"
+
+})
+
+gsap.from(".hero-btn",{
+
+  opacity:0,
+  y:40,
+
+  delay:.5,
+
+  duration:1.6,
+
+  ease:"power3.out"
 
 })
 
 // FLOATING HERO
 
-gsap.to(".hero-content", {
+gsap.to(".hero-content",{
 
-  y: 30,
+  y:30,
 
-  duration: 4,
+  duration:4,
 
-  repeat: -1,
+  repeat:-1,
 
-  yoyo: true,
+  yoyo:true,
 
-  ease: "sine.inOut"
+  ease:"sine.inOut"
 
 })
 
 // PARALLAX
 
-gsap.to(".gradient", {
+gsap.to(".gradient",{
 
-  y: 300,
+  y:300,
 
-  scrollTrigger: {
-    scrub: true
+  scrollTrigger:{
+    scrub:true
   }
 
 })
 
 // SECTION REVEAL
 
-gsap.utils.toArray(".section").forEach(section => {
+gsap.utils.toArray(".section").forEach(section=>{
 
-  gsap.from(section, {
+  gsap.from(section,{
 
-    opacity: 0,
-    y: 120,
+    opacity:0,
+    y:120,
 
-    duration: 1.5,
+    duration:1.5,
 
-    ease: "power3.out",
+    ease:"power3.out",
 
-    scrollTrigger: {
-      trigger: section,
-      start: "top 80%"
+    scrollTrigger:{
+      trigger:section,
+      start:"top 80%"
     }
 
   })
@@ -162,20 +164,20 @@ gsap.utils.toArray(".section").forEach(section => {
 
 // PROJECT REVEAL
 
-gsap.utils.toArray(".project").forEach(project => {
+gsap.utils.toArray(".project").forEach(project=>{
 
-  gsap.from(project, {
+  gsap.from(project,{
 
-    opacity: 0,
-    y: 120,
+    opacity:0,
+    y:120,
 
-    duration: 1.5,
+    duration:1.5,
 
-    ease: "power3.out",
+    ease:"power3.out",
 
-    scrollTrigger: {
-      trigger: project,
-      start: "top 85%"
+    scrollTrigger:{
+      trigger:project,
+      start:"top 85%"
     }
 
   })
@@ -189,9 +191,9 @@ gsap.utils.toArray(".project").forEach(project => {
 const buttons =
 document.querySelectorAll(".hero-btn")
 
-buttons.forEach(btn => {
+buttons.forEach(btn=>{
 
-  btn.addEventListener("mousemove", (e) => {
+  btn.addEventListener("mousemove",(e)=>{
 
     const rect =
     btn.getBoundingClientRect()
@@ -202,29 +204,29 @@ buttons.forEach(btn => {
     const y =
     e.clientY - rect.top - rect.height / 2
 
-    gsap.to(btn, {
+    gsap.to(btn,{
 
-      x: x * .2,
-      y: y * .2,
+      x:x * .2,
+      y:y * .2,
 
-      duration: .4,
+      duration:.4,
 
-      ease: "power3.out"
+      ease:"power3.out"
 
     })
 
   })
 
-  btn.addEventListener("mouseleave", () => {
+  btn.addEventListener("mouseleave",()=>{
 
-    gsap.to(btn, {
+    gsap.to(btn,{
 
-      x: 0,
-      y: 0,
+      x:0,
+      y:0,
 
-      duration: .7,
+      duration:.7,
 
-      ease: "elastic.out(1,0.3)"
+      ease:"elastic.out(1,0.3)"
 
     })
 
@@ -242,27 +244,29 @@ document.getElementById("particles")
 const ctx =
 canvas.getContext("2d")
 
-canvas.width = window.innerWidth
+canvas.width =
+window.innerWidth
 
-canvas.height = window.innerHeight
+canvas.height =
+window.innerHeight
 
 let mouse = {
 
-  x: null,
-  y: null,
+  x:null,
+  y:null,
 
-  radius: 160
+  radius:160
 
 }
 
-window.addEventListener("mousemove", (e) => {
+window.addEventListener("mousemove",(e)=>{
 
   mouse.x = e.x
   mouse.y = e.y
 
 })
 
-window.addEventListener("mouseout", () => {
+window.addEventListener("mouseout",()=>{
 
   mouse.x = undefined
   mouse.y = undefined
@@ -273,9 +277,9 @@ window.addEventListener("mouseout", () => {
 // STAR CLASS
 // ======================
 
-class Star {
+class Star{
 
-  constructor() {
+  constructor(){
 
     this.x =
     Math.random() * canvas.width
@@ -303,7 +307,7 @@ class Star {
 
   }
 
-  draw() {
+  draw(){
 
     ctx.beginPath()
 
@@ -325,9 +329,7 @@ class Star {
 
   }
 
-  update() {
-
-    // Ambient floating
+  update(){
 
     this.baseX += this.speedX
     this.baseY += this.speedY
@@ -344,8 +346,6 @@ class Star {
 
     }
 
-    // Mouse interaction
-
     let dx =
     mouse.x - this.x
 
@@ -358,7 +358,7 @@ class Star {
     if(distance < mouse.radius){
 
       const angle =
-      Math.atan2(dy, dx)
+      Math.atan2(dy,dx)
 
       const force =
       (mouse.radius - distance)
@@ -375,15 +375,11 @@ class Star {
 
     }
 
-    // Smooth return
-
     this.vx +=
     (this.baseX - this.x) * 0.008
 
     this.vy +=
     (this.baseY - this.y) * 0.008
-
-    // Friction
 
     this.vx *= 0.94
     this.vy *= 0.94
@@ -401,11 +397,11 @@ class Star {
 
 let stars = []
 
-function initStars() {
+function initStars(){
 
   stars = []
 
-  for(let i = 0; i < 220; i++) {
+  for(let i = 0; i < 220; i++){
 
     stars.push(new Star())
 
@@ -419,11 +415,11 @@ initStars()
 // CONNECT STARS
 // ======================
 
-function connectStars() {
+function connectStars(){
 
-  for(let a = 0; a < stars.length; a++) {
+  for(let a = 0; a < stars.length; a++){
 
-    for(let b = a; b < stars.length; b++) {
+    for(let b = a; b < stars.length; b++){
 
       let dx =
       stars[a].x - stars[b].x
@@ -434,7 +430,7 @@ function connectStars() {
       let distance =
       dx * dx + dy * dy
 
-      if(distance < 5500) {
+      if(distance < 5500){
 
         const opacity =
         1 - (distance / 5500)
@@ -470,7 +466,7 @@ function connectStars() {
 // ANIMATION LOOP
 // ======================
 
-function animateStars() {
+function animateStars(){
 
   ctx.clearRect(
     0,
@@ -479,7 +475,7 @@ function animateStars() {
     canvas.height
   )
 
-  for(let i = 0; i < stars.length; i++) {
+  for(let i = 0; i < stars.length; i++){
 
     stars[i].update()
 
@@ -499,7 +495,7 @@ animateStars()
 // RESIZE
 // ======================
 
-window.addEventListener("resize", () => {
+window.addEventListener("resize",()=>{
 
   canvas.width =
   window.innerWidth
@@ -527,9 +523,9 @@ document.getElementById("lightbox-img")
 const lightboxClose =
 document.querySelector(".lightbox-close")
 
-galleryImages.forEach(img => {
+galleryImages.forEach(img=>{
 
-  img.addEventListener("click", () => {
+  img.addEventListener("click",()=>{
 
     lightbox.classList.add("active")
 
@@ -541,18 +537,6 @@ galleryImages.forEach(img => {
 
 })
 
-lightboxClose.addEventListener("click", closeLightbox)
-
-lightbox.addEventListener("click", (e) => {
-
-  if(e.target === lightbox){
-
-    closeLightbox()
-
-  }
-
-})
-
 function closeLightbox(){
 
   lightbox.classList.remove("active")
@@ -561,9 +545,27 @@ function closeLightbox(){
 
 }
 
-// ESC KEY CLOSE
+if(lightboxClose){
 
-window.addEventListener("keydown", (e) => {
+  lightboxClose.addEventListener("click",closeLightbox)
+
+}
+
+if(lightbox){
+
+  lightbox.addEventListener("click",(e)=>{
+
+    if(e.target === lightbox){
+
+      closeLightbox()
+
+    }
+
+  })
+
+}
+
+window.addEventListener("keydown",(e)=>{
 
   if(e.key === "Escape"){
 
@@ -586,24 +588,72 @@ document.getElementById("imagePreview")
 const closePreview =
 document.querySelector(".close-preview")
 
-previewTrigger.addEventListener("click",()=>{
+if(previewTrigger && imagePreview){
 
-  imagePreview.classList.add("active")
+  previewTrigger.addEventListener("click",()=>{
 
-})
+    imagePreview.classList.add("active")
 
-closePreview.addEventListener("click",()=>{
+  })
 
-  imagePreview.classList.remove("active")
+}
 
-})
+if(closePreview && imagePreview){
 
-imagePreview.addEventListener("click",(e)=>{
-
-  if(e.target === imagePreview){
+  closePreview.addEventListener("click",()=>{
 
     imagePreview.classList.remove("active")
 
-  }
+  })
 
-})
+}
+
+if(imagePreview){
+
+  imagePreview.addEventListener("click",(e)=>{
+
+    if(e.target === imagePreview){
+
+      imagePreview.classList.remove("active")
+
+    }
+
+  })
+
+}
+
+// =====================
+// MOBILE MENU
+// =====================
+
+const menuToggle =
+document.getElementById("menuToggle")
+
+const navbar =
+document.getElementById("navbar")
+
+if(menuToggle && navbar){
+
+  menuToggle.addEventListener("click",()=>{
+
+    menuToggle.classList.toggle("active")
+
+    navbar.classList.toggle("active")
+
+  })
+
+  document
+  .querySelectorAll("nav a")
+  .forEach(link=>{
+
+    link.addEventListener("click",()=>{
+
+      menuToggle.classList.remove("active")
+
+      navbar.classList.remove("active")
+
+    })
+
+  })
+
+}
