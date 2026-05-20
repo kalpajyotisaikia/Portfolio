@@ -1,15 +1,27 @@
 // ======================
-// LENIS SMOOTH SCROLL
+// DEVICE CHECK
 // ======================
 
 const isMobile =
 window.innerWidth < 768
 
+// ======================
+// GSAP REGISTER
+// ======================
+
+gsap.registerPlugin(ScrollTrigger)
+
+gsap.ticker.lagSmoothing(0)
+
+// ======================
+// LENIS SMOOTH SCROLL
+// ======================
+
 const lenis = new Lenis({
 
-  duration: isMobile ? 1.05 : 1.5,
+  duration: isMobile ? 0.7 : 1.1,
 
-  lerp: isMobile ? 0.11 : 0.075,
+  lerp: isMobile ? 0.18 : 0.11,
 
   smoothWheel: true,
 
@@ -17,13 +29,17 @@ const lenis = new Lenis({
 
   syncTouch: true,
 
-  wheelMultiplier: 0.9,
+  wheelMultiplier: 1,
 
-  touchMultiplier: 1,
+  touchMultiplier: 1.2,
 
   infinite:false
 
 })
+
+// ======================
+// RAF
+// ======================
 
 lenis.on("scroll", ScrollTrigger.update)
 
@@ -38,6 +54,16 @@ function raf(time){
 }
 
 requestAnimationFrame(raf)
+
+// ======================
+// MOBILE TOUCH FIX
+// ======================
+
+window.addEventListener(
+  "touchstart",
+  ()=>{},
+  {passive:true}
+)
 
 // ======================
 // LOADER
@@ -84,12 +110,8 @@ if(cursor && !isMobile){
 }
 
 // ======================
-// GSAP
+// HERO ANIMATIONS
 // ======================
-
-gsap.registerPlugin(ScrollTrigger)
-
-// HERO
 
 gsap.from(".hero-sub",{
 
@@ -139,7 +161,9 @@ gsap.from(".hero-btn",{
 
 })
 
+// ======================
 // FLOATING HERO
+// ======================
 
 if(!isMobile){
 
@@ -159,7 +183,9 @@ if(!isMobile){
 
 }
 
+// ======================
 // PARALLAX
+// ======================
 
 gsap.to(".gradient",{
 
@@ -171,7 +197,9 @@ gsap.to(".gradient",{
 
 })
 
+// ======================
 // SECTION REVEAL
+// ======================
 
 gsap.utils.toArray(".section").forEach(section=>{
 
@@ -193,7 +221,9 @@ gsap.utils.toArray(".section").forEach(section=>{
 
 })
 
+// ======================
 // PROJECT REVEAL
+// ======================
 
 gsap.utils.toArray(".project").forEach(project=>{
 
@@ -280,21 +310,29 @@ const ctx =
 canvas.getContext("2d")
 
 const dpr =
-Math.min(window.devicePixelRatio,1.2)
+isMobile ? 1 : Math.min(window.devicePixelRatio,1.5)
 
-canvas.width =
-window.innerWidth * dpr
+function resizeCanvas(){
 
-canvas.height =
-window.innerHeight * dpr
+  canvas.width =
+  window.innerWidth * dpr
 
-canvas.style.width =
-window.innerWidth + "px"
+  canvas.height =
+  window.innerHeight * dpr
 
-canvas.style.height =
-window.innerHeight + "px"
+  canvas.style.width =
+  window.innerWidth + "px"
 
-ctx.scale(dpr,dpr)
+  canvas.style.height =
+  window.innerHeight + "px"
+
+  ctx.setTransform(1,0,0,1,0,0)
+
+  ctx.scale(dpr,dpr)
+
+}
+
+resizeCanvas()
 
 let mouse = {
 
@@ -305,7 +343,9 @@ let mouse = {
 
 }
 
+// ======================
 // MOUSE
+// ======================
 
 window.addEventListener("mousemove",(e)=>{
 
@@ -316,7 +356,9 @@ window.addEventListener("mousemove",(e)=>{
   passive:true
 })
 
+// ======================
 // TOUCH
+// ======================
 
 window.addEventListener("touchmove",(e)=>{
 
@@ -330,7 +372,9 @@ window.addEventListener("touchmove",(e)=>{
   passive:true
 })
 
+// ======================
 // OUT
+// ======================
 
 window.addEventListener("mouseout",()=>{
 
@@ -385,14 +429,11 @@ class Star{
     ctx.fillStyle =
     "rgba(255,255,255,.9)"
 
-    if(!isMobile){
+    ctx.shadowBlur =
+    isMobile ? 0 : 2
 
-      ctx.shadowBlur = 8
-
-      ctx.shadowColor =
-      "#ffffff"
-
-    }
+    ctx.shadowColor =
+    "#ffffff"
 
     ctx.fill()
 
@@ -479,7 +520,7 @@ function initStars(){
   stars = []
 
   const starCount =
-  isMobile ? 70 : 140
+  isMobile ? 32 : 90
 
   for(let i = 0; i < starCount; i++){
 
@@ -501,7 +542,7 @@ function connectStars(){
 
   for(let a = 0; a < stars.length; a++){
 
-    for(let b = a; b < stars.length; b++){
+    for(let b = a + 1; b < stars.length; b++){
 
       let dx =
       stars[a].x - stars[b].x
@@ -551,7 +592,7 @@ function connectStars(){
 let lastTime = 0
 
 const fps =
-isMobile ? 35 : 60
+isMobile ? 45 : 60
 
 const interval =
 1000 / fps
@@ -595,19 +636,7 @@ requestAnimationFrame(animateStars)
 
 window.addEventListener("resize",()=>{
 
-  canvas.width =
-  window.innerWidth * dpr
-
-  canvas.height =
-  window.innerHeight * dpr
-
-  canvas.style.width =
-  window.innerWidth + "px"
-
-  canvas.style.height =
-  window.innerHeight + "px"
-
-  ctx.scale(dpr,dpr)
+  resizeCanvas()
 
   initStars()
 
