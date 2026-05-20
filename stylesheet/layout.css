@@ -27,6 +27,8 @@ body{
 
   text-rendering:optimizeLegibility;
   -webkit-font-smoothing:antialiased;
+
+  position:relative;
 }
 
 /* =========================
@@ -53,14 +55,125 @@ canvas,
 #particles{
   position:fixed;
   inset:0;
-  z-index:-2;
+  z-index:-3;
 
   background:
   radial-gradient(
     circle at top,
-    #111827 0%,
-    #050505 60%
+    #312e81 0%,
+    #1e1b4b 25%,
+    #0f172a 55%,
+    #020617 100%
   );
+}
+
+/* =========================
+   SKY GLOW
+========================= */
+
+body::before{
+
+  content:"";
+
+  position:fixed;
+
+  inset:0;
+
+  background:
+
+  radial-gradient(
+    circle at 20% 20%,
+    rgba(99,102,241,.18),
+    transparent 35%
+  ),
+
+  radial-gradient(
+    circle at 80% 10%,
+    rgba(168,85,247,.16),
+    transparent 30%
+  ),
+
+  radial-gradient(
+    circle at 50% 80%,
+    rgba(59,130,246,.08),
+    transparent 40%
+  );
+
+  pointer-events:none;
+
+  z-index:-2;
+}
+
+/* =========================
+   WAXING CRESCENT MOON
+========================= */
+
+body::after{
+
+  content:"";
+
+  position:fixed;
+
+  top:10%;
+
+  right:7%;
+
+  width:150px;
+  height:150px;
+
+  border-radius:50%;
+
+  background:
+  radial-gradient(
+    circle at 35% 35%,
+    #ffffff 0%,
+    #e0e7ff 28%,
+    #c4b5fd 58%,
+    #8b5cf6 100%
+  );
+
+  box-shadow:
+
+  0 0 25px rgba(255,255,255,.2),
+
+  0 0 70px rgba(168,85,247,.28),
+
+  0 0 120px rgba(99,102,241,.2);
+
+  z-index:-1;
+
+  animation:
+  moonFloat 7s ease-in-out infinite;
+}
+
+/* MOON MASK */
+
+.hero::before{
+
+  content:"";
+
+  position:fixed;
+
+  top:9.8%;
+
+  right:5.3%;
+
+  width:150px;
+  height:150px;
+
+  border-radius:50%;
+
+  background:
+  radial-gradient(
+    circle at top,
+    #1e1b4b 0%,
+    #0f172a 58%,
+    #020617 100%
+  );
+
+  z-index:-1;
+
+  opacity:.98;
 }
 
 /* =========================
@@ -172,6 +285,9 @@ header{
   backdrop-filter:blur(20px);
 
   background:rgba(5,5,5,.25);
+
+  border-bottom:
+  1px solid rgba(255,255,255,.04);
 }
 
 /* =========================
@@ -296,8 +412,6 @@ nav a:hover{
   transition:.4s ease;
 }
 
-/* ACTIVE */
-
 .menu-toggle.active span:nth-child(1){
 
   transform:
@@ -331,22 +445,37 @@ nav a:hover{
   padding:0 8%;
 
   position:relative;
+
+  overflow:hidden;
 }
 
 .gradient{
   position:absolute;
 
-  width:900px;
-  height:900px;
+  width:1000px;
+  height:1000px;
 
-  background:#7c3aed;
+  background:
+  radial-gradient(
 
-  filter:blur(200px);
+    circle,
 
-  opacity:.18;
+    rgba(124,58,237,.95) 0%,
 
-  top:-300px;
-  right:-200px;
+    rgba(99,102,241,.75) 35%,
+
+    rgba(59,130,246,.25) 58%,
+
+    rgba(15,23,42,.02) 100%
+
+  );
+
+  filter:blur(180px);
+
+  opacity:.28;
+
+  top:-360px;
+  right:-260px;
 }
 
 .hero-content{
@@ -364,7 +493,7 @@ nav a:hover{
 
   letter-spacing:4px;
 
-  color:#777;
+  color:#9ca3af;
 
   font-size:.8rem;
 }
@@ -384,7 +513,7 @@ nav a:hover{
 
   line-height:2;
 
-  color:#999;
+  color:#b0b7c3;
 
   margin-bottom:40px;
 
@@ -410,6 +539,16 @@ nav a:hover{
   text-decoration:none;
 
   font-weight:700;
+
+  transition:.35s ease;
+}
+
+.hero-btn:hover{
+
+  transform:translateY(-3px);
+
+  box-shadow:
+  0 10px 40px rgba(255,255,255,.15);
 }
 
 .scroll-text{
@@ -422,7 +561,7 @@ nav a:hover{
 
   letter-spacing:5px;
 
-  color:#555;
+  color:#666;
 }
 
 /* =========================
@@ -436,7 +575,7 @@ nav a:hover{
 .section-label{
   margin-bottom:70px;
 
-  color:#666;
+  color:#818cf8;
 
   letter-spacing:4px;
 
@@ -462,7 +601,7 @@ nav a:hover{
 }
 
 .about p{
-  color:#999;
+  color:#a1a1aa;
 
   line-height:2;
 
@@ -504,7 +643,7 @@ nav a:hover{
 }
 
 .project-info span{
-  color:#777;
+  color:#a78bfa;
 
   letter-spacing:2px;
 
@@ -518,7 +657,7 @@ nav a:hover{
 }
 
 .project-info p{
-  color:#999;
+  color:#a1a1aa;
 
   line-height:2;
 
@@ -542,7 +681,7 @@ nav a:hover{
 
   color:#fff;
 
-  border-bottom:1px solid #444;
+  border-bottom:1px solid #4c1d95;
 
   padding-bottom:5px;
 }
@@ -563,7 +702,7 @@ nav a:hover{
 }
 
 .timeline-item span{
-  color:#777;
+  color:#a78bfa;
 }
 
 .timeline-item h3{
@@ -573,7 +712,7 @@ nav a:hover{
 }
 
 .timeline-item p{
-  color:#999;
+  color:#a1a1aa;
 
   line-height:2;
 }
@@ -598,7 +737,9 @@ nav a:hover{
 
   border:1px solid rgba(255,255,255,.08);
 
-  background:rgba(255,255,255,.02);
+  background:rgba(255,255,255,.03);
+
+  backdrop-filter:blur(18px);
 
   transition:.4s ease;
 }
@@ -606,7 +747,10 @@ nav a:hover{
 .research-card:hover{
   transform:translateY(-6px);
 
-  border-color:rgba(124,58,237,.4);
+  border-color:rgba(124,58,237,.45);
+
+  box-shadow:
+  0 10px 40px rgba(124,58,237,.15);
 }
 
 /* =========================
@@ -714,7 +858,7 @@ nav a:hover{
 
   text-decoration:none;
 
-  opacity:.6;
+  opacity:.7;
 
   transition:.3s ease;
 }
@@ -790,10 +934,113 @@ nav a:hover{
 }
 
 /* =========================
+   FLOAT CONTACT BUTTONS
+========================= */
+
+.floating-contact{
+
+  position:fixed;
+
+  right:22px;
+
+  bottom:24px;
+
+  display:flex;
+
+  flex-direction:column;
+
+  gap:14px;
+
+  z-index:99999;
+}
+
+.floating-contact a{
+
+  width:54px;
+  height:54px;
+
+  border-radius:50%;
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  text-decoration:none;
+
+  color:#fff;
+
+  font-size:1.2rem;
+
+  background:
+  rgba(255,255,255,.08);
+
+  backdrop-filter:blur(14px);
+
+  border:
+  1px solid rgba(255,255,255,.1);
+
+  transition:.35s ease;
+}
+
+.floating-contact a:hover{
+
+  transform:
+  translateY(-4px)
+  scale(1.08);
+
+  background:
+  rgba(124,58,237,.55);
+
+  box-shadow:
+  0 10px 30px rgba(124,58,237,.3);
+}
+
+/* =========================
+   MOON FLOAT
+========================= */
+
+@keyframes moonFloat{
+
+  0%{
+    transform:translateY(0px);
+  }
+
+  50%{
+    transform:translateY(12px);
+  }
+
+  100%{
+    transform:translateY(0px);
+  }
+
+}
+
+/* =========================
    TABLETS
 ========================= */
 
 @media screen and (max-width:1100px){
+
+  body::after{
+
+    width:115px;
+    height:115px;
+
+    top:10%;
+
+    right:6%;
+  }
+
+  .hero::before{
+
+    width:115px;
+    height:115px;
+
+    top:9.8%;
+
+    right:4.8%;
+  }
 
   .menu-toggle{
     display:flex;
@@ -831,14 +1078,7 @@ nav a:hover{
     right:0;
   }
 
-  .hero h1{
-    font-size:clamp(3.5rem,10vw,6rem);
-  }
-
-  .project{
-    grid-template-columns:1fr;
-  }
-
+  .project,
   .project.reverse{
     grid-template-columns:1fr;
   }
@@ -854,6 +1094,26 @@ nav a:hover{
 ========================= */
 
 @media screen and (max-width:768px){
+
+  body::after{
+
+    width:82px;
+    height:82px;
+
+    top:9%;
+
+    right:5%;
+  }
+
+  .hero::before{
+
+    width:82px;
+    height:82px;
+
+    top:8.8%;
+
+    right:3.8%;
+  }
 
   .loader-img{
 
@@ -885,12 +1145,6 @@ nav a:hover{
     padding:120px 7% 80px;
 
     min-height:auto;
-  }
-
-  .hero-sub{
-    font-size:.7rem;
-
-    letter-spacing:2px;
   }
 
   .hero h1{
@@ -958,8 +1212,21 @@ nav a:hover{
     font-size:clamp(2.8rem,13vw,5rem);
   }
 
-  .contact-links{
-    gap:20px;
+  .floating-contact{
+
+    right:14px;
+
+    bottom:18px;
+
+    gap:10px;
+  }
+
+  .floating-contact a{
+
+    width:48px;
+    height:48px;
+
+    font-size:1rem;
   }
 
 }
