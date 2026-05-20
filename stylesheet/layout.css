@@ -146,35 +146,6 @@ body::after{
   moonFloat 7s ease-in-out infinite;
 }
 
-/* MOON MASK */
-
-.hero::before{
-
-  content:"";
-
-  position:fixed;
-
-  top:9.8%;
-
-  right:5.3%;
-
-  width:150px;
-  height:150px;
-
-  border-radius:50%;
-
-  background:
-  radial-gradient(
-    circle at top,
-    #1e1b4b 0%,
-    #0f172a 58%,
-    #020617 100%
-  );
-
-  z-index:-1;
-
-  opacity:.98;
-}
 
 /* =========================
    NOISE
