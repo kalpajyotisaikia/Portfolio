@@ -1,19 +1,15 @@
 // ======================
-// DEVICE CHECK
+// LENIS SMOOTH SCROLL
 // ======================
 
 const isMobile =
 window.innerWidth < 768
 
-// ======================
-// LENIS SMOOTH SCROLL
-// ======================
-
 const lenis = new Lenis({
 
-  duration: 1.2,
+  duration: isMobile ? 1.05 : 1.5,
 
-  lerp: 0.09,
+  lerp: isMobile ? 0.11 : 0.075,
 
   smoothWheel: true,
 
@@ -51,7 +47,7 @@ gsap.to(".loader",{
 
   opacity:0,
 
-  delay:1.2,
+  delay:1.5,
 
   duration:1.2,
 
@@ -109,7 +105,7 @@ gsap.from(".hero-sub",{
 gsap.from(".reveal",{
 
   opacity:0,
-  y:80,
+  y:70,
 
   duration:1.4,
 
@@ -120,11 +116,11 @@ gsap.from(".reveal",{
 gsap.from(".hero p",{
 
   opacity:0,
-  y:40,
+  y:30,
 
   delay:.2,
 
-  duration:1,
+  duration:1.1,
 
   ease:"power3.out"
 
@@ -133,11 +129,11 @@ gsap.from(".hero p",{
 gsap.from(".hero-btn",{
 
   opacity:0,
-  y:30,
+  y:25,
 
-  delay:.35,
+  delay:.3,
 
-  duration:1,
+  duration:1.1,
 
   ease:"power3.out"
 
@@ -149,7 +145,7 @@ if(!isMobile){
 
   gsap.to(".hero-content",{
 
-    y:16,
+    y:18,
 
     duration:4,
 
@@ -170,7 +166,7 @@ gsap.to(".gradient",{
   y:isMobile ? 120 : 220,
 
   scrollTrigger:{
-    scrub:1
+    scrub:true
   }
 
 })
@@ -248,7 +244,7 @@ if(!isMobile){
 
         duration:.3,
 
-        ease:"power2.out"
+        ease:"power3.out"
 
       })
 
@@ -261,7 +257,7 @@ if(!isMobile){
         x:0,
         y:0,
 
-        duration:.5,
+        duration:.6,
 
         ease:"power3.out"
 
@@ -305,7 +301,7 @@ let mouse = {
   x:null,
   y:null,
 
-  radius:isMobile ? 90 : 160
+  radius:isMobile ? 120 : 160
 
 }
 
@@ -334,7 +330,9 @@ window.addEventListener("touchmove",(e)=>{
   passive:true
 })
 
-window.addEventListener("touchend",()=>{
+// OUT
+
+window.addEventListener("mouseout",()=>{
 
   mouse.x = undefined
   mouse.y = undefined
@@ -359,13 +357,13 @@ class Star{
     this.baseY = this.y
 
     this.size =
-    Math.random() * 1.6 + .4
+    Math.random() * 1.8 + .5
 
     this.speedX =
-    (Math.random() - .5) * .04
+    (Math.random() - .5) * .05
 
     this.speedY =
-    (Math.random() - .5) * .04
+    (Math.random() - .5) * .05
 
     this.vx = 0
     this.vy = 0
@@ -387,11 +385,14 @@ class Star{
     ctx.fillStyle =
     "rgba(255,255,255,.9)"
 
-    ctx.shadowBlur =
-    isMobile ? 0 : 8
+    if(!isMobile){
 
-    ctx.shadowColor =
-    "#ffffff"
+      ctx.shadowBlur = 8
+
+      ctx.shadowColor =
+      "#ffffff"
+
+    }
 
     ctx.fill()
 
@@ -427,12 +428,9 @@ class Star{
     mouse.y - this.y
 
     let distance =
-    dx * dx + dy * dy
+    (dx * dx + dy * dy)
 
-    if(
-      mouse.x &&
-      distance < mouse.radius * mouse.radius
-    ){
+    if(distance < mouse.radius * mouse.radius){
 
       const angle =
       Math.atan2(dy,dx)
@@ -444,7 +442,7 @@ class Star{
       )
 
       const push =
-      force * 2
+      force * 2.4
 
       this.vx -=
       Math.cos(angle) * push
@@ -455,10 +453,10 @@ class Star{
     }
 
     this.vx +=
-    (this.baseX - this.x) * 0.005
+    (this.baseX - this.x) * 0.006
 
     this.vy +=
-    (this.baseY - this.y) * 0.005
+    (this.baseY - this.y) * 0.006
 
     this.vx *= 0.92
     this.vy *= 0.92
@@ -514,10 +512,10 @@ function connectStars(){
       let distance =
       dx * dx + dy * dy
 
-      if(distance < 2400){
+      if(distance < 2600){
 
         const opacity =
-        1 - (distance / 2400)
+        1 - (distance / 2600)
 
         ctx.beginPath()
 
@@ -550,13 +548,13 @@ function connectStars(){
 // ANIMATION LOOP
 // ======================
 
+let lastTime = 0
+
 const fps =
-isMobile ? 32 : 60
+isMobile ? 35 : 60
 
 const interval =
 1000 / fps
-
-let lastTime = 0
 
 function animateStars(timestamp){
 
@@ -616,7 +614,7 @@ window.addEventListener("resize",()=>{
 })
 
 // ======================
-// LIGHTBOX
+// LIGHTBOX GALLERY
 // ======================
 
 const galleryImages =
@@ -676,9 +674,19 @@ if(lightbox){
 
 }
 
-// ======================
-// PROFILE PREVIEW
-// ======================
+window.addEventListener("keydown",(e)=>{
+
+  if(e.key === "Escape"){
+
+    closeLightbox()
+
+  }
+
+})
+
+// =========================
+// PROFILE IMAGE PREVIEW
+// =========================
 
 const previewTrigger =
 document.querySelector(".preview-trigger")
@@ -704,6 +712,20 @@ if(closePreview && imagePreview){
   closePreview.addEventListener("click",()=>{
 
     imagePreview.classList.remove("active")
+
+  })
+
+}
+
+if(imagePreview){
+
+  imagePreview.addEventListener("click",(e)=>{
+
+    if(e.target === imagePreview){
+
+      imagePreview.classList.remove("active")
+
+    }
 
   })
 
