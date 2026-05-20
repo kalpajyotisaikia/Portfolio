@@ -899,3 +899,17 @@ nav a:hover{
   }
 
 }
+
+canvas,
+.hero,
+.project,
+.research-card,
+.gallery-item{
+
+  transform:translateZ(0);
+
+  backface-visibility:hidden;
+
+  will-change:transform;
+
+}

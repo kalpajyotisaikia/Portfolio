@@ -3,14 +3,32 @@
 // ======================
 
 const lenis = new Lenis({
-  duration: 1.8,
+
+  duration: 1.6,
+
+  lerp: 0.065,
+
   smoothWheel: true,
-  smoothTouch: true
+
+  smoothTouch: true,
+
+  syncTouch: true,
+
+  wheelMultiplier: 0.85,
+
+  touchMultiplier: 1,
+
+  infinite:false
+
 })
+
+lenis.on("scroll", ScrollTrigger.update)
 
 function raf(time){
 
   lenis.raf(time)
+
+  ScrollTrigger.update()
 
   requestAnimationFrame(raf)
 
@@ -22,15 +40,15 @@ requestAnimationFrame(raf)
 // LOADER
 // ======================
 
-gsap.to(".loader", {
+gsap.to(".loader",{
 
-  opacity: 0,
+  opacity:0,
 
-  delay: 1.8,
+  delay:1.8,
 
-  duration: 1.5,
+  duration:1.5,
 
-  pointerEvents: "none"
+  pointerEvents:"none"
 
 })
 
@@ -41,23 +59,29 @@ gsap.to(".loader", {
 const cursor =
 document.querySelector(".cursor")
 
-window.addEventListener("mousemove",(e)=>{
+if(cursor){
 
-  gsap.to(cursor,{
+  window.addEventListener("mousemove",(e)=>{
 
-    x:e.clientX,
-    y:e.clientY,
+    gsap.to(cursor,{
 
-    duration:.12,
+      x:e.clientX,
+      y:e.clientY,
 
-    ease:"power3.out"
+      duration:.12,
 
+      ease:"power3.out"
+
+    })
+
+  },{
+    passive:true
   })
 
-})
+}
 
 // ======================
-// GSAP ANIMATIONS
+// GSAP
 // ======================
 
 gsap.registerPlugin(ScrollTrigger)
@@ -67,9 +91,9 @@ gsap.registerPlugin(ScrollTrigger)
 gsap.from(".hero-sub",{
 
   opacity:0,
-  y:30,
+  y:20,
 
-  duration:1.5,
+  duration:1.2,
 
   ease:"power3.out"
 
@@ -78,9 +102,9 @@ gsap.from(".hero-sub",{
 gsap.from(".reveal",{
 
   opacity:0,
-  y:180,
+  y:80,
 
-  duration:2,
+  duration:1.6,
 
   ease:"power4.out"
 
@@ -89,11 +113,11 @@ gsap.from(".reveal",{
 gsap.from(".hero p",{
 
   opacity:0,
-  y:60,
+  y:40,
 
-  delay:.3,
+  delay:.2,
 
-  duration:1.6,
+  duration:1.2,
 
   ease:"power3.out"
 
@@ -102,11 +126,11 @@ gsap.from(".hero p",{
 gsap.from(".hero-btn",{
 
   opacity:0,
-  y:40,
+  y:30,
 
-  delay:.5,
+  delay:.4,
 
-  duration:1.6,
+  duration:1.2,
 
   ease:"power3.out"
 
@@ -116,7 +140,7 @@ gsap.from(".hero-btn",{
 
 gsap.to(".hero-content",{
 
-  y:30,
+  y:20,
 
   duration:4,
 
@@ -132,7 +156,7 @@ gsap.to(".hero-content",{
 
 gsap.to(".gradient",{
 
-  y:300,
+  y:220,
 
   scrollTrigger:{
     scrub:true
@@ -147,15 +171,15 @@ gsap.utils.toArray(".section").forEach(section=>{
   gsap.from(section,{
 
     opacity:0,
-    y:120,
+    y:60,
 
-    duration:1.5,
+    duration:1.2,
 
     ease:"power3.out",
 
     scrollTrigger:{
       trigger:section,
-      start:"top 80%"
+      start:"top 85%"
     }
 
   })
@@ -169,15 +193,15 @@ gsap.utils.toArray(".project").forEach(project=>{
   gsap.from(project,{
 
     opacity:0,
-    y:120,
+    y:60,
 
-    duration:1.5,
+    duration:1.2,
 
     ease:"power3.out",
 
     scrollTrigger:{
       trigger:project,
-      start:"top 85%"
+      start:"top 88%"
     }
 
   })
@@ -206,10 +230,10 @@ buttons.forEach(btn=>{
 
     gsap.to(btn,{
 
-      x:x * .2,
-      y:y * .2,
+      x:x * .18,
+      y:y * .18,
 
-      duration:.4,
+      duration:.35,
 
       ease:"power3.out"
 
@@ -244,11 +268,22 @@ document.getElementById("particles")
 const ctx =
 canvas.getContext("2d")
 
+const dpr =
+Math.min(window.devicePixelRatio,1.5)
+
 canvas.width =
-window.innerWidth
+window.innerWidth * dpr
 
 canvas.height =
-window.innerHeight
+window.innerHeight * dpr
+
+canvas.style.width =
+window.innerWidth + "px"
+
+canvas.style.height =
+window.innerHeight + "px"
+
+ctx.scale(dpr,dpr)
 
 let mouse = {
 
@@ -259,12 +294,32 @@ let mouse = {
 
 }
 
+// MOUSE
+
 window.addEventListener("mousemove",(e)=>{
 
-  mouse.x = e.x
-  mouse.y = e.y
+  mouse.x = e.clientX
+  mouse.y = e.clientY
 
+},{
+  passive:true
 })
+
+// TOUCH
+
+window.addEventListener("touchmove",(e)=>{
+
+  mouse.x =
+  e.touches[0].clientX
+
+  mouse.y =
+  e.touches[0].clientY
+
+},{
+  passive:true
+})
+
+// OUT
 
 window.addEventListener("mouseout",()=>{
 
@@ -282,19 +337,16 @@ class Star{
   constructor(){
 
     this.x =
-    Math.random() * canvas.width
+    Math.random() * window.innerWidth
 
     this.y =
-    Math.random() * canvas.height
+    Math.random() * window.innerHeight
 
     this.baseX = this.x
     this.baseY = this.y
 
     this.size =
     Math.random() * 2 + .6
-
-    this.density =
-    (Math.random() * 25) + 8
 
     this.speedX =
     (Math.random() - .5) * .08
@@ -322,8 +374,10 @@ class Star{
     ctx.fillStyle =
     "rgba(255,255,255,.95)"
 
-    ctx.shadowBlur = 15
-    ctx.shadowColor = "#ffffff"
+    ctx.shadowBlur = 8
+
+    ctx.shadowColor =
+    "#ffffff"
 
     ctx.fill()
 
@@ -334,13 +388,19 @@ class Star{
     this.baseX += this.speedX
     this.baseY += this.speedY
 
-    if(this.baseX > canvas.width || this.baseX < 0){
+    if(
+      this.baseX > window.innerWidth ||
+      this.baseX < 0
+    ){
 
       this.speedX *= -1
 
     }
 
-    if(this.baseY > canvas.height || this.baseY < 0){
+    if(
+      this.baseY > window.innerHeight ||
+      this.baseY < 0
+    ){
 
       this.speedY *= -1
 
@@ -353,19 +413,21 @@ class Star{
     mouse.y - this.y
 
     let distance =
-    Math.sqrt(dx * dx + dy * dy)
+    (dx * dx + dy * dy)
 
-    if(distance < mouse.radius){
+    if(distance < mouse.radius * mouse.radius){
 
       const angle =
       Math.atan2(dy,dx)
 
       const force =
-      (mouse.radius - distance)
-      / mouse.radius
+      1 - (
+        distance /
+        (mouse.radius * mouse.radius)
+      )
 
       const push =
-      force * 3.5
+      force * 3.2
 
       this.vx -=
       Math.cos(angle) * push
@@ -401,7 +463,10 @@ function initStars(){
 
   stars = []
 
-  for(let i = 0; i < 220; i++){
+  const starCount =
+  window.innerWidth < 768 ? 120 : 180
+
+  for(let i = 0; i < starCount; i++){
 
     stars.push(new Star())
 
@@ -430,10 +495,10 @@ function connectStars(){
       let distance =
       dx * dx + dy * dy
 
-      if(distance < 5500){
+      if(distance < 3200){
 
         const opacity =
-        1 - (distance / 5500)
+        1 - (distance / 3200)
 
         ctx.beginPath()
 
@@ -466,13 +531,29 @@ function connectStars(){
 // ANIMATION LOOP
 // ======================
 
-function animateStars(){
+let lastTime = 0
+
+const fps = 60
+
+const interval = 1000 / fps
+
+function animateStars(timestamp){
+
+  requestAnimationFrame(animateStars)
+
+  const delta =
+  timestamp - lastTime
+
+  if(delta < interval) return
+
+  lastTime =
+  timestamp - (delta % interval)
 
   ctx.clearRect(
     0,
     0,
-    canvas.width,
-    canvas.height
+    window.innerWidth,
+    window.innerHeight
   )
 
   for(let i = 0; i < stars.length; i++){
@@ -485,11 +566,9 @@ function animateStars(){
 
   connectStars()
 
-  requestAnimationFrame(animateStars)
-
 }
 
-animateStars()
+requestAnimationFrame(animateStars)
 
 // ======================
 // RESIZE
@@ -497,11 +576,22 @@ animateStars()
 
 window.addEventListener("resize",()=>{
 
+  const dpr =
+  Math.min(window.devicePixelRatio,1.5)
+
   canvas.width =
-  window.innerWidth
+  window.innerWidth * dpr
 
   canvas.height =
-  window.innerHeight
+  window.innerHeight * dpr
+
+  canvas.style.width =
+  window.innerWidth + "px"
+
+  canvas.style.height =
+  window.innerHeight + "px"
+
+  ctx.scale(dpr,dpr)
 
   initStars()
 
@@ -547,7 +637,10 @@ function closeLightbox(){
 
 if(lightboxClose){
 
-  lightboxClose.addEventListener("click",closeLightbox)
+  lightboxClose.addEventListener(
+    "click",
+    closeLightbox
+  )
 
 }
 
@@ -622,9 +715,9 @@ if(imagePreview){
 
 }
 
-// =====================
+// ======================
 // MOBILE MENU
-// =====================
+// ======================
 
 const menuToggle =
 document.getElementById("menuToggle")
