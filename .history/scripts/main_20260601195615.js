@@ -19,21 +19,19 @@ gsap.ticker.lagSmoothing(0)
 
 const lenis = new Lenis({
 
-  duration: isMobile ? 1.5 : 2,
+  duration: 2.5,
 
-  lerp: isMobile ? 0.18 : 0.11,
+  lerp: 0.04,
 
   smoothWheel: true,
 
   smoothTouch: true,
 
-  syncTouch: true,
+  syncTouch: false,
 
-  wheelMultiplier: 1,
+  wheelMultiplier: 1.5,
 
-  touchMultiplier: 1.2,
-
-  infinite:false
+  touchMultiplier: 2.5
 
 })
 

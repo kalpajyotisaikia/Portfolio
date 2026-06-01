@@ -19,7 +19,7 @@ gsap.ticker.lagSmoothing(0)
 
 const lenis = new Lenis({
 
-  duration: isMobile ? 1.5 : 2,
+  duration: isMobile ? 1.5 : 1.1,
 
   lerp: isMobile ? 0.18 : 0.11,
 
