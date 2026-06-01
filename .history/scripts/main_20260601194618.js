@@ -520,6 +520,7 @@ function initStars(){
   stars = []
 
   const starCount =
+
   isMobile ? 100 : 300
 
   for(let i = 0; i < starCount; i++){

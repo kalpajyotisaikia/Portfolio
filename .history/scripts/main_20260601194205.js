@@ -401,7 +401,7 @@ class Star{
     this.baseY = this.y
 
     this.size =
-    Math.random() * 2.5 + .8
+    Math.random() * 1.8 + .5
 
     this.speedX =
     (Math.random() - .5) * .05
@@ -515,11 +515,12 @@ class Star{
 
 let stars = []
 
-function initStars(){
+ffunction initStars(){
 
   stars = []
 
   const starCount =
+
   isMobile ? 100 : 300
 
   for(let i = 0; i < starCount; i++){
