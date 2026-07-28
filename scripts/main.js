@@ -795,3 +795,134 @@ if(menuToggle && navbar){
   })
 
 }
+
+
+// ===============================
+// DEMO CREDENTIALS
+// ===============================
+
+const ERP_TABLE = `
+
+<table class="credential-table">
+
+<tr>
+<th>Role</th>
+<th>Email</th>
+<th>Password</th>
+</tr>
+
+<tr>
+<td>Super Admin</td>
+<td>superadmin@fidicon.com</td>
+<td>SuperAdmin@123</td>
+</tr>
+
+<tr>
+<td>Sales Admin</td>
+<td>admin@fidicon.com</td>
+<td>Admin@123</td>
+</tr>
+
+<tr>
+<td>Production Admin</td>
+<td>production.admin@fidicon.com</td>
+<td>Production@123</td>
+</tr>
+
+<tr>
+<td>Procurement Admin</td>
+<td>procurement.admin@fidicon.com</td>
+<td>Procurement@123</td>
+</tr>
+
+<tr>
+<td>QA / QC Admin</td>
+<td>qa.admin@fidicon.com</td>
+<td>QAqc@123</td>
+</tr>
+
+<tr>
+<td>Service Admin</td>
+<td>service.admin@fidicon.com</td>
+<td>Service@123</td>
+</tr>
+
+</table>
+
+`;
+
+const TRACKER_TABLE = `
+
+<table class="credential-table">
+
+<tr>
+<th>Department</th>
+<th>Email</th>
+<th>Password</th>
+</tr>
+
+<tr><td>Super Admin</td><td>superadmin@fidicon.com</td><td>SuperAdmin@123</td></tr>
+
+<tr><td>Sales</td><td>admin@fidicon.com</td><td>Admin@123</td></tr>
+
+<tr><td>Production</td><td>production.admin@fidicon.com</td><td>Production@123</td></tr>
+
+<tr><td>Service</td><td>service.admin@fidicon.com</td><td>Service@123</td></tr>
+
+<tr><td>QC</td><td>qc.admin@fidicon.com</td><td>Qc@123</td></tr>
+
+<tr><td>Sales Department</td><td>salesdept.admin@fidicon.com</td><td>Salesdept@123</td></tr>
+
+<tr><td>Dispatch</td><td>dispatch.admin@fidicon.com</td><td>Dispatch@123</td></tr>
+
+<tr><td>Accounts</td><td>accounts.admin@fidicon.com</td><td>Accounts@123</td></tr>
+
+<tr><td>Design</td><td>design.admin@fidicon.com</td><td>Design@123</td></tr>
+
+<tr><td>Purchase</td><td>purchase.admin@fidicon.com</td><td>Purchase@123</td></tr>
+
+</table>
+
+`;
+
+function openCredentials(type){
+
+const modal=document.getElementById("credentialModal");
+
+const title=document.getElementById("credentialTitle");
+
+const table=document.getElementById("credentialTable");
+
+if(type==="erp"){
+
+title.innerHTML="Fidicon ERP";
+table.innerHTML=ERP_TABLE;
+
+}else{
+
+title.innerHTML="Fidicon Task Tracker";
+table.innerHTML=TRACKER_TABLE;
+
+}
+
+modal.style.display="flex";
+
+}
+
+function closeCredentials(){
+
+document.getElementById("credentialModal").style.display="none";
+
+}
+
+window.addEventListener("click",function(e){
+
+const modal=document.getElementById("credentialModal");
+
+if(e.target===modal){
+
+modal.style.display="none";
+
+}
+
+});
