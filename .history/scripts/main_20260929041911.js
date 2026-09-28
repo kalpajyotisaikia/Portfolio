@@ -801,11 +801,6 @@ if(menuToggle && navbar){
 // DEMO CREDENTIALS
 // ===============================
 
-
-// ===============================
-// FIDICON ERP CREDENTIALS
-// ===============================
-
 const ERP_TABLE = `
 
 <table class="credential-table">
@@ -856,11 +851,6 @@ const ERP_TABLE = `
 
 `;
 
-
-// ===============================
-// FIDICON TASK TRACKER CREDENTIALS
-// ===============================
-
 const TRACKER_TABLE = `
 
 <table class="credential-table">
@@ -871,250 +861,92 @@ const TRACKER_TABLE = `
 <th>Password</th>
 </tr>
 
-<tr>
-<td>Super Admin</td>
-<td>superadmin@fidicon.com</td>
-<td>SuperAdmin@123</td>
-</tr>
+<tr><td>Super Admin</td><td>superadmin@fidicon.com</td><td>SuperAdmin@123</td></tr>
 
-<tr>
-<td>Sales</td>
-<td>admin@fidicon.com</td>
-<td>Admin@123</td>
-</tr>
+<tr><td>Sales</td><td>admin@fidicon.com</td><td>Admin@123</td></tr>
 
-<tr>
-<td>Production</td>
-<td>production.admin@fidicon.com</td>
-<td>Production@123</td>
-</tr>
+<tr><td>Production</td><td>production.admin@fidicon.com</td><td>Production@123</td></tr>
 
-<tr>
-<td>Service</td>
-<td>service.admin@fidicon.com</td>
-<td>Service@123</td>
-</tr>
+<tr><td>Service</td><td>service.admin@fidicon.com</td><td>Service@123</td></tr>
 
-<tr>
-<td>QC</td>
-<td>qc.admin@fidicon.com</td>
-<td>Qc@123</td>
-</tr>
+<tr><td>QC</td><td>qc.admin@fidicon.com</td><td>Qc@123</td></tr>
 
-<tr>
-<td>Sales Department</td>
-<td>salesdept.admin@fidicon.com</td>
-<td>Salesdept@123</td>
-</tr>
+<tr><td>Sales Department</td><td>salesdept.admin@fidicon.com</td><td>Salesdept@123</td></tr>
 
-<tr>
-<td>Dispatch</td>
-<td>dispatch.admin@fidicon.com</td>
-<td>Dispatch@123</td>
-</tr>
+<tr><td>Dispatch</td><td>dispatch.admin@fidicon.com</td><td>Dispatch@123</td></tr>
 
-<tr>
-<td>Accounts</td>
-<td>accounts.admin@fidicon.com</td>
-<td>Accounts@123</td>
-</tr>
+<tr><td>Accounts</td><td>accounts.admin@fidicon.com</td><td>Accounts@123</td></tr>
 
-<tr>
-<td>Design</td>
-<td>design.admin@fidicon.com</td>
-<td>Design@123</td>
-</tr>
+<tr><td>Design</td><td>design.admin@fidicon.com</td><td>Design@123</td></tr>
 
-<tr>
-<td>Purchase</td>
-<td>purchase.admin@fidicon.com</td>
-<td>Purchase@123</td>
-</tr>
+<tr><td>Purchase</td><td>purchase.admin@fidicon.com</td><td>Purchase@123</td></tr>
 
 </table>
 
 `;
 
-
-// ===============================
-// SERVEFLOW CREDENTIALS
-// ===============================
-
-const SERVEFLOW_TABLE = `
-
-<div class="serveflow-credentials">
-
-  <p>
-    <strong>Email:</strong><br>
-    admin@dgdevelopers.in
-  </p>
-
-  <p style="margin-top:15px;">
-    <strong>Password:</strong><br>
-    serveflow123
-  </p>
-
-</div>
-
-`;
-
-
-// ===============================
-// OPEN CREDENTIALS MODAL
-// ===============================
-
 function openCredentials(type){
 
-  const modal =
-    document.getElementById("credentialModal");
+const modal=document.getElementById("credentialModal");
 
-  const title =
-    document.getElementById("credentialTitle");
+const title=document.getElementById("credentialTitle");
 
-  const table =
-    document.getElementById("credentialTable");
+const table=document.getElementById("credentialTable");
 
-  const note =
-    document.getElementById("credentialNote");
+if(type==="erp"){
 
+title.innerHTML="Fidicon ERP";
+table.innerHTML=ERP_TABLE;
 
-  // ===============================
-  // FIDICON ERP
-  // ===============================
+}else{
 
-  if(type === "erp"){
-
-    title.innerHTML =
-      "Fidicon ERP";
-
-    table.innerHTML =
-      ERP_TABLE;
-
-    note.innerHTML = `
-
-      <strong>How to use:</strong><br><br>
-
-      1. Click the <b>Backend</b> button first
-      and wait until it loads.<br>
-
-      2. Then open the
-      <b>Main Application</b>.<br>
-
-      3. Login using any of the
-      credentials below.
-
-    `;
-
-  }
-
-
-  // ===============================
-  // FIDICON TASK TRACKER
-  // ===============================
-
-  else if(type === "tracker"){
-
-    title.innerHTML =
-      "Fidicon Task Tracker";
-
-    table.innerHTML =
-      TRACKER_TABLE;
-
-    note.innerHTML = `
-
-      <strong>How to use:</strong><br><br>
-
-      1. Click the <b>Backend</b> button first
-      and wait until it loads.<br>
-
-      2. Then open the
-      <b>Main Application</b>.<br>
-
-      3. Login using any of the
-      credentials below.
-
-    `;
-
-  }
-
-
-  // ===============================
-  // SERVEFLOW
-  // ===============================
-
-  else if(type === "serveflow"){
-
-    title.innerHTML =
-      "ServeFlow — Restaurant Operations";
-
-    table.innerHTML =
-      SERVEFLOW_TABLE;
-
-    note.innerHTML = `
-
-      <strong>Demo Login:</strong><br><br>
-
-      Use the credentials below to access
-      the ServeFlow prototype.
-
-    `;
-
-  }
-
-
-  // ===============================
-  // UNKNOWN PROJECT
-  // ===============================
-
-  else{
-
-    title.innerHTML =
-      "Demo Credentials";
-
-    table.innerHTML =
-      "<p>No credentials available.</p>";
-
-    note.innerHTML = "";
-
-  }
-
-
-  // Show modal
-
-  modal.style.display = "flex";
+title.innerHTML="Fidicon Task Tracker";
+table.innerHTML=TRACKER_TABLE;
 
 }
 
+modal.style.display="flex";
 
-// ===============================
-// CLOSE CREDENTIALS MODAL
-// ===============================
+}
 
 function closeCredentials(){
 
-  document
-    .getElementById("credentialModal")
-    .style.display = "none";
+document.getElementById("credentialModal").style.display="none";
 
 }
 
+window.addEventListener("click",function(e){
 
-// ===============================
-// CLOSE WHEN CLICKING OUTSIDE
-// ===============================
+const modal=document.getElementById("credentialModal");
 
-window.addEventListener(
-  "click",
-  function(e){
+if(e.target===modal){
 
-    const modal =
-      document.getElementById("credentialModal");
+modal.style.display="none";
 
-    if(e.target === modal){
+}
 
-      modal.style.display = "none";
+});
 
-    }
+function openCredentials(type) {
 
+  let title = "";
+  let credentials = "";
+
+  if (type === "tracker") {
+    title = "Fidicon Task Tracker";
+    credentials = `
+      <strong>Email:</strong> your-email<br>
+      <strong>Password:</strong> your-password
+    `;
   }
-);
+
+  if (type === "serveflow") {
+    title = "ServeFlow — Restaurant Operations";
+    credentials = `
+      <strong>Email:</strong> admin@dgdevelopers.in<br>
+      <strong>Password:</strong> serveflow123
+    `;
+  }
+
+  // your existing modal code...
+}

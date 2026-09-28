@@ -801,11 +801,6 @@ if(menuToggle && navbar){
 // DEMO CREDENTIALS
 // ===============================
 
-
-// ===============================
-// FIDICON ERP CREDENTIALS
-// ===============================
-
 const ERP_TABLE = `
 
 <table class="credential-table">
@@ -856,10 +851,6 @@ const ERP_TABLE = `
 
 `;
 
-
-// ===============================
-// FIDICON TASK TRACKER CREDENTIALS
-// ===============================
 
 const TRACKER_TABLE = `
 
@@ -936,10 +927,6 @@ const TRACKER_TABLE = `
 `;
 
 
-// ===============================
-// SERVEFLOW CREDENTIALS
-// ===============================
-
 const SERVEFLOW_TABLE = `
 
 <div class="serveflow-credentials">
@@ -959,10 +946,6 @@ const SERVEFLOW_TABLE = `
 `;
 
 
-// ===============================
-// OPEN CREDENTIALS MODAL
-// ===============================
-
 function openCredentials(type){
 
   const modal =
@@ -974,73 +957,22 @@ function openCredentials(type){
   const table =
     document.getElementById("credentialTable");
 
-  const note =
-    document.getElementById("credentialNote");
-
-
-  // ===============================
-  // FIDICON ERP
-  // ===============================
 
   if(type === "erp"){
 
-    title.innerHTML =
-      "Fidicon ERP";
+    title.innerHTML = "Fidicon ERP";
 
-    table.innerHTML =
-      ERP_TABLE;
-
-    note.innerHTML = `
-
-      <strong>How to use:</strong><br><br>
-
-      1. Click the <b>Backend</b> button first
-      and wait until it loads.<br>
-
-      2. Then open the
-      <b>Main Application</b>.<br>
-
-      3. Login using any of the
-      credentials below.
-
-    `;
+    table.innerHTML = ERP_TABLE;
 
   }
-
-
-  // ===============================
-  // FIDICON TASK TRACKER
-  // ===============================
 
   else if(type === "tracker"){
 
-    title.innerHTML =
-      "Fidicon Task Tracker";
+    title.innerHTML = "Fidicon Task Tracker";
 
-    table.innerHTML =
-      TRACKER_TABLE;
-
-    note.innerHTML = `
-
-      <strong>How to use:</strong><br><br>
-
-      1. Click the <b>Backend</b> button first
-      and wait until it loads.<br>
-
-      2. Then open the
-      <b>Main Application</b>.<br>
-
-      3. Login using any of the
-      credentials below.
-
-    `;
+    table.innerHTML = TRACKER_TABLE;
 
   }
-
-
-  // ===============================
-  // SERVEFLOW
-  // ===============================
 
   else if(type === "serveflow"){
 
@@ -1050,21 +982,7 @@ function openCredentials(type){
     table.innerHTML =
       SERVEFLOW_TABLE;
 
-    note.innerHTML = `
-
-      <strong>Demo Login:</strong><br><br>
-
-      Use the credentials below to access
-      the ServeFlow prototype.
-
-    `;
-
   }
-
-
-  // ===============================
-  // UNKNOWN PROJECT
-  // ===============================
 
   else{
 
@@ -1074,21 +992,13 @@ function openCredentials(type){
     table.innerHTML =
       "<p>No credentials available.</p>";
 
-    note.innerHTML = "";
-
   }
 
-
-  // Show modal
 
   modal.style.display = "flex";
 
 }
 
-
-// ===============================
-// CLOSE CREDENTIALS MODAL
-// ===============================
 
 function closeCredentials(){
 
@@ -1099,22 +1009,17 @@ function closeCredentials(){
 }
 
 
-// ===============================
-// CLOSE WHEN CLICKING OUTSIDE
-// ===============================
+// Close modal when clicking outside the content
 
-window.addEventListener(
-  "click",
-  function(e){
+window.addEventListener("click", function(e){
 
-    const modal =
-      document.getElementById("credentialModal");
+  const modal =
+    document.getElementById("credentialModal");
 
-    if(e.target === modal){
+  if(e.target === modal){
 
-      modal.style.display = "none";
-
-    }
+    modal.style.display = "none";
 
   }
-);
+
+});

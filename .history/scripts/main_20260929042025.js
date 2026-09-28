@@ -925,4 +925,29 @@ modal.style.display="none";
 
 }
 
+function openCredentials(type) {
+
+  let title = "";
+  let credentials = "";
+
+  if (type === "tracker") {
+    title = "Fidicon Task Tracker";
+    credentials = `
+      <strong>Email:</strong> your-email<br>
+      <strong>Password:</strong> your-password
+    `;
+  }
+
+  if (type === "serveflow") {
+    title = "ServeFlow — Restaurant Operations";
+    credentials = `
+      <strong>Email:</strong> admin@dgdevelopers.in<br>
+      <strong>Password:</strong> serveflow123
+    `;
+  }
+
+  // your existing modal code...
+}
+
 });
+
